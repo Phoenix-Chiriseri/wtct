@@ -16,10 +16,6 @@ class SupportWorkersController extends Controller
     {
         //
         $currentDate = Carbon::now()->toDateString();     
-        /*$shifts = SupportWorkers::whereDate('date', '>=', $currentDate)->get();
-        $shifts = SupportWorkers::whereDate('date', '>=', $currentDate)
-        ->orderBy('id', 'desc')
-        ->get();*/
         $shifts = SupportWorkers::whereDate('date', '>=', $currentDate)
         ->orderBy('id', 'desc')
         ->paginate(5);
@@ -48,10 +44,6 @@ class SupportWorkersController extends Controller
         SupportWorkers::create($validatedData);
         session()->flash("success","Success Message");
          return redirect('/');
-        //return view('welcome');
-        //return redirect()->route('/')->with('success', 'Support Worker Added');
-        //return view('welcome');
-        //return view('/');
     }
 
     /**
