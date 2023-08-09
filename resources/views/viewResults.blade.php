@@ -29,7 +29,11 @@
                             <tbody>
                                 @foreach ($shifts as $shift)
                                 <tr>
-                                    <td>{{ $shift->date }}</td>
+                                    <!--<td>{{ $shift->date }}</td>
+                                    <td>{{ $shift->num_people }}</td>
+                                    <td>{{ $shift->shift }}</td>!-->
+                                    <td>{{ \Carbon\Carbon::parse($shift->date)->format('l, F j, Y') }}</td>
+                                    
                                     <td>{{ $shift->num_people }}</td>
                                     <td>{{ $shift->shift }}</td>
                                 </tr>

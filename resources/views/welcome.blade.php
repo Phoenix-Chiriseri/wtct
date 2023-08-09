@@ -20,17 +20,15 @@
                 <div class="card-body">
                 @if(Session::has('success'))
                 <script type="text/javascript">
-
                 function massge() {
                 Swal.fire(
-            'Success',
-            'Support Worker Added Successfully'
-        );
-  }
-
-  window.onload = massge;
- </script>
-@endif
+                'Success',
+                'Support Worker Added Successfully'
+                    );
+                    }
+                    window.onload = massge;
+                    </script>
+                    @endif
                     <form method="POST" action="{{ route('createSupportWorker') }}">
                         @csrf
                         <div class="form-group">

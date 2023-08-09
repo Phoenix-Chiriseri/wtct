@@ -16,10 +16,10 @@ class SupportWorkersController extends Controller
     {
         //
         $currentDate = Carbon::now()->toDateString();     
-        //$shifts = SupportWorkers::whereDate('date', '>=', $currentDate)->get();
+        $shifts = SupportWorkers::whereDate('date', '>=', $currentDate)->get();
         $shifts = SupportWorkers::whereDate('date', '>=', $currentDate)
-            ->orderBy('id', 'desc')
-            ->get();
+        ->orderBy('id', 'desc')
+        ->get();
         return view('viewResults', ['shifts' => $shifts]);
     }
 
