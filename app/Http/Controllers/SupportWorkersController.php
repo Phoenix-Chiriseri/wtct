@@ -17,8 +17,9 @@ class SupportWorkersController extends Controller
         //
         $currentDate = Carbon::now()->toDateString();     
         $shifts = SupportWorkers::whereDate('date', '>=', $currentDate)
-        ->orderBy('id', 'desc')
-        ->paginate(5);
+            ->orderBy('date', 'asc')
+            ->orderBy('shift', 'asc')
+            ->paginate(5);
         return view('viewResults', ['shifts' => $shifts]);
     }
 
