@@ -47,7 +47,7 @@ class SupportWorkersController extends Controller
         //dd($request->input('shift'));
         SupportWorkers::create($validatedData);
         session()->flash("success","Success Message");
-        return redirect('/');
+        return redirect('viewResults');
     }
     /**
      * Display the specified resource.

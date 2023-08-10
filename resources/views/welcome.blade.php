@@ -7,7 +7,6 @@
                 <h1 class="display-4">Support Workers</h1>
                 <hr class="my-4">
                 <p>This is a place where support workers can connect, collaborate, and find important information.</p>
-                <a class="btn btn-primary btn-lg" href="#" role="button">Learn more</a>
             </div>
         </div>
     </div>
