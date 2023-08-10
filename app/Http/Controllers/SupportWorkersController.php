@@ -22,7 +22,7 @@ class SupportWorkersController extends Controller
         ->select(
             DB::raw('SUM(CASE WHEN shift = "morning" THEN num_people ELSE 0 END) as morningshift'),
             DB::raw('SUM(CASE WHEN shift = "night" THEN num_people ELSE 0 END) as nightshift'),
-            'datce'
+            'date'
         )
         ->whereDate('date', '>=', $currentDate)
         ->groupBy('date')

@@ -1,13 +1,12 @@
 <script src="https://cdn.jsdelivr.net/npm/admin-lte@3.2/dist/js/adminlte.min.js"></script>
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/admin-lte@3.2/dist/css/adminlte.min.css">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
 <style>
     .ribbon-wrapper {
         position: absolute;
         right: -10px;
         top: -10px;
         overflow: hidden;
-        width: 75px;
+        width: 100px; /* Adjust width for longer text */
         height: 75px;
     }
 
@@ -19,8 +18,9 @@
         color: #fff;
         text-transform: uppercase;
         transform: rotate(45deg);
-        right: -25px;
+        right: -45px; /* Adjust right position for longer text */
         top: 20px;
+        white-space: nowrap; /* Prevent text from wrapping */
     }
 
     .info-box {
@@ -55,14 +55,41 @@
     }
 </style>
 <div class="container">
-    @foreach ($shiftCounts as $shiftCount)
-    <div class="card">
-        <div class="card-body">
+    <div class="row justify-content-center">
+        <div class="col-md-12">
+            <div class="jumbotron">
+                <h1 class="display-4">Support Workers</h1>
+                <hr class="my-4">
+                <p>Total People For Today</p>
+                <a href="/" class="btn btn-success">Add Entry</a>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="container">
+    <div class="row">
+        @foreach ($shiftCounts as $shiftCount)
+        <div class="col-md-4">
+            <div class="info-box">
+                <div class="ribbon-wrapper">
+                    <div class="ribbon bg-primary">
+                        Ribbon
+                    </div>
+                </div>
+                <span class="info-box-icon bg-primary"><i class="fa fa-users"></i></span>
+                <div class="info-box-content">
             <h5 class="card-title">{{ date('Y-m-d (D)', strtotime($shiftCount->date)) }}</h5>
             <p class="card-text">Day of the week: {{ date('l', strtotime($shiftCount->date)) }}</p>
             <p class="card-text">Morning Shift: {{ $shiftCount->morningshift }}</p>
             <p class="card-text">Night Shift: {{ $shiftCount->nightshift }}</p>
+                </div>
+            </div>
+        </div>
+        @endforeach
+    </div>
+    <div class="row justify-content-center">
+        <div class="col-md-12">
+            
         </div>
     </div>
-    @endforeach
 </div>
