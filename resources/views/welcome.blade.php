@@ -53,11 +53,16 @@
 
                         <div class="form-group">
                             <label for="shift">{{ __('Shift') }}</label>
-                            <select id="shift" class="form-control @error('shift') is-invalid @enderror" name="shift" required>
+                            <!--<select id="shift" class="form-control @error('shift') is-invalid @enderror" name="shift" required>
                                 <option value="morning">Morning Shift</option>
                                 <option value="late">Late Shift</option>
                                 <option value="night">Night Shift</option>
                                 <option value="long">Long Day</option>
+                            </select>!-->
+                            <select class="form-control" id="shift" name="shift">
+                            @foreach ($shiftOptions as $value => $text)
+                            <option value="{{ $value }}">{{ $text }}</option>
+                            @endforeach
                             </select>
                             @error('shift')
                                 <div class="invalid-feedback">

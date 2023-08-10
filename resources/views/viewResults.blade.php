@@ -6,7 +6,7 @@
             <div class="jumbotron">
                 <h1 class="display-4">Support Workers</h1>
                 <hr class="my-4">
-                <p>All Job Entries</p>
+                <p>Total People For Today {{$totalJobs}}</p>
                 <a href="/" class="btn btn-success">Add Entry</a>
             </div>
         </div>
@@ -47,9 +47,9 @@
             </button>
         </div>
     </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
+</div>
+</div>
+</div>
+</div>
+</div>
 </div>

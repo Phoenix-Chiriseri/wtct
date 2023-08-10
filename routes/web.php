@@ -15,7 +15,13 @@ use App\Http\Controllers\SupportWorkersController;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    $shiftOptions = [
+        'morning' => 'Morning Shift',
+        'late' => 'Late Shift',
+        'night' => 'Night Shift',
+        'long' => 'Long Day',
+    ];
+    return view('welcome')->with("shiftOptions",$shiftOptions);
 });
 Route::post('/createSupportWorker', [SupportWorkersController::class, 'store'])->name("createSupportWorker");
 Route::get('viewResults', [SupportWorkersController::class, 'index'])->name("viewResults");
