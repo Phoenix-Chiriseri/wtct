@@ -18,11 +18,46 @@ class SupportWorkersController extends Controller
     {  
         $currentDate = Carbon::now()->toDateString();    
         $totalPeopleForCurrentDay = SupportWorkers::whereDate('date', $currentDate)->sum('num_people');
-        $shifts = SupportWorkers::whereDate('date', '>=', $currentDate)
+        $currentDate = Carbon::today();
+        $currentDate = now()->toDateString();
+        $currentDate = '2023-08-10';
+        $currentDate = '2023-08-10';
+
+        $shiftCounts = DB::table('support_workers')
+        ->select(
+        DB::raw('SUM(CASE WHEN shift = "morning" THEN num_people ELSE 0 END) as morningshift'),
+        DB::raw('SUM(CASE WHEN shift = "night" THEN num_people ELSE 0 END) as nightshift'),
+        'date'
+        )
+        ->whereDate('date', '>=', $currentDate)
+        ->groupBy('date')
+        ->get();
+
+        foreach ($shiftCounts as $shiftCount) {
+        var_dump($shiftCount->date);
+        var_dump($shiftCount->morningshift);
+         }
+        //this is for one shift.....
+        //SELECT sum(num_people) as nightshift from support_workers where shift ='night' and date = '2023-08-10';
+        //$totalNightShiftWorkers = DB::table('support_workers')
+        //->selectRaw('SUM(CASE WHEN shift = "night" THEN 1 ELSE 0 END) AS total_night_shift_workers')
+        //->whereDate('date', '>=', $currentDate)
+        //->value('total_night_shift_workers');
+        //var_dump($totalNightShiftWorkers);
+        /*$shifts = SupportWorkers::whereDate('date', '>=', $currentDate)
             ->orderBy('date', 'asc')
             ->orderBy('shift', 'desc')
             ->paginate(6);
-        return view('viewResults', ['shifts' => $shifts])->with("totalJobs",$totalPeopleForCurrentDay)->with("shifts",$shifts);
+       $nightShiftWorkers = $shifts->filter(function ($shift) {
+       return $shift->shift === 'night';
+      });
+     $totalNightShiftWorkers = $nightShiftWorkers->sum();
+     var_dump($totalNightShiftWorkers);
+        /*$shifts = SupportWorkers::whereDate('date', '>=', $currentDate)
+            ->orderBy('date', 'asc')
+            ->orderBy('shift', 'desc')
+            ->paginate(6);*/
+        //return view('viewResults', ['shifts' => $shifts])->with("totalJobs",$totalPeopleForCurrentDay)->with("shifts",$shifts);
     }
 
     /**
@@ -44,7 +79,7 @@ class SupportWorkersController extends Controller
             'num_people' => 'required|integer',
             'shift' => 'required|in:morning,late,night,long',
         ]);
-        //dd($request->input('shift'));
+
         SupportWorkers::create($validatedData);
         session()->flash("success","Success Message");
         return redirect('viewResults');
