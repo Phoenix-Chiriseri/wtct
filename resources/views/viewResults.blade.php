@@ -55,81 +55,14 @@
     }
 </style>
 <div class="container">
-    <div class="row justify-content-center">
-        <div class="col-md-12">
-            <div class="jumbotron">
-                <h1 class="display-4">Support Workers</h1>
-                <hr class="my-4">
-                <p>Total People For Today {{$totalJobs}}</p>
-                <a href="/" class="btn btn-info">Add Entry</a>
-            </div>
+    @foreach ($shiftCounts as $shiftCount)
+    <div class="card">
+        <div class="card-body">
+            <h5 class="card-title">{{ date('Y-m-d (D)', strtotime($shiftCount->date)) }}</h5>
+            <p class="card-text">Day of the week: {{ date('l', strtotime($shiftCount->date)) }}</p>
+            <p class="card-text">Morning Shift: {{ $shiftCount->morningshift }}</p>
+            <p class="card-text">Night Shift: {{ $shiftCount->nightshift }}</p>
         </div>
     </div>
-</div>
-<div class="container">
-    <div class="row">
-        @foreach ($shifts as $shift)
-        <div class="col-md-4">
-            <div class="info-box">
-                <div class="ribbon-wrapper">
-                    <div class="ribbon bg-primary">
-                        
-                    </div>
-                </div>
-                <span class="info-box-icon bg-primary"><i class="fas fa-users"></i></span>
-                <div class="info-box-content">
-                    <span class="info-box-text">{{ \Carbon\Carbon::parse($shift->date)->format('l, F j, Y') }}</span>
-                    <span class="info-box-number">Number of People: {{ $shift->num_people }}</span>
-                    <span class="info-box-number">Shift: {{ $shift->shift }}</span>
-                </div>
-            </div>
-        </div>
-        @endforeach
-    </div>
-    <div class="row justify-content-center">
-    <div class="col-md-12">
-        <nav aria-label="Page navigation">
-            <ul class="pagination">
-                {{-- Previous Page Link --}}
-                @if ($shifts->onFirstPage())
-                    <li class="page-item disabled">
-                        <span class="page-link">Previous</span>
-                    </li>
-                @else
-                    <li class="page-item">
-                        <a href="{{ $shifts->previousPageUrl() }}" class="page-link" aria-label="Previous">
-                            <span aria-hidden="true">Previous</span>
-                        </a>
-                    </li>
-                @endif
-                
-                {{-- Pagination Elements --}}
-                @foreach ($shifts->getUrlRange(1, $shifts->lastPage()) as $page => $url)
-                    @if ($page == $shifts->currentPage())
-                        <li class="page-item active">
-                            <span class="page-link">{{ $page }}</span>
-                        </li>
-                    @else
-                        <li class="page-item">
-                            <a href="{{ $url }}" class="page-link">{{ $page }}</a>
-                        </li>
-                    @endif
-                @endforeach
-                
-                {{-- Next Page Link --}}
-                @if ($shifts->hasMorePages())
-                    <li class="page-item">
-                        <a href="{{ $shifts->nextPageUrl() }}" class="page-link" aria-label="Next">
-                            <span aria-hidden="true">Next</span>
-                        </a>
-                    </li>
-                @else
-                    <li class="page-item disabled">
-                        <span class="page-link">Next</span>
-                    </li>
-                @endif
-            </ul>
-        </nav>
-    </div>
-</div>
+    @endforeach
 </div>
