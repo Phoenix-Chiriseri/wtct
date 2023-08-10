@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use App\Models\SupportWorkers;
 use Illuminate\Http\Request;
 use Carbon\Carbon;
+use Charts;
+use Illuminate\Support\Facades\DB;
 
 
 class SupportWorkersController extends Controller
@@ -13,17 +15,14 @@ class SupportWorkersController extends Controller
      * Display a listing of the resource.
      */
     public function index()
-    {
-        //
-        
-        $currentDate = Carbon::now()->toDateString();   
-        //$totalJobsForCurrentDay = SupportWorkers::whereDate('created_at', $currentDate)->count();  
-        $totalPeopleForCurrentDay = SupportWorkers::whereDate('created_at', $currentDate)->sum('num_people');
+    {  
+        $currentDate = Carbon::now()->toDateString();    
+        $totalPeopleForCurrentDay = SupportWorkers::whereDate('date', $currentDate)->sum('num_people');
         $shifts = SupportWorkers::whereDate('date', '>=', $currentDate)
             ->orderBy('date', 'asc')
             ->orderBy('shift', 'desc')
-            ->paginate(5);
-        return view('viewResults', ['shifts' => $shifts])->with("totalJobs",$totalPeopleForCurrentDay);
+            ->paginate(6);
+        return view('viewResults', ['shifts' => $shifts])->with("totalJobs",$totalPeopleForCurrentDay)->with("shifts",$shifts);
     }
 
     /**
