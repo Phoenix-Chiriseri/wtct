@@ -60,7 +60,7 @@
             <div class="jumbotron">
                 <h1 class="display-4">Support Workers</h1>
                 <hr class="my-4">
-                <p>Total People For Today</p>
+                <p>Total People For Today {{$total}}</p>
                 <a href="/" class="btn btn-success">Add Entry</a>
             </div>
         </div>
@@ -73,7 +73,7 @@
             <div class="info-box">
                 <div class="ribbon-wrapper">
                     <div class="ribbon bg-primary">
-                        Ribbon
+                        WCTC
                     </div>
                 </div>
                 <span class="info-box-icon bg-primary"><i class="fa fa-users"></i></span>

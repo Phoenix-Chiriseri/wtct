@@ -27,7 +27,7 @@ class SupportWorkersController extends Controller
         ->whereDate('date', '>=', $currentDate)
         ->groupBy('date')
         ->get();
-        return view('viewResults', ['shiftCounts' => $shiftCounts])->with("totalJobs",$totalPeopleForCurrentDay);
+        return view('viewResults', ['shiftCounts' => $shiftCounts])->with("totalJobs",$totalPeopleForCurrentDay)->with("total",$totalPeopleForCurrentDay);
         
     }
 
