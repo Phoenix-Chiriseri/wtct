@@ -57,7 +57,7 @@ class SupportWorkersController extends Controller
     public function store(Request $request)
     {
         
-            $validatedData = $request->validate([
+        $validatedData = $request->validate([
             'date' => 'required|date',
             'num_people' => 'required|integer',
             'shift' => 'required|in:morning,late,night,long',
@@ -78,7 +78,7 @@ class SupportWorkersController extends Controller
         $totalPeopleForCurrentDay = SupportWorkers::whereDate('date', $date)->sum('num_people');
         
         // Recalculate the shift counts for the selected shift type
-        $shiftCounts = DB::table('support_workers')
+           $shiftCounts = DB::table('support_workers')
             ->select(
                 DB::raw('SUM(CASE WHEN shift = ? THEN num_people + ? ELSE 0 END) as selected_shift'),
                 'date'
@@ -90,7 +90,6 @@ class SupportWorkersController extends Controller
             ->get();
             dd($shiftCounts);
             return view('viewUpdatedResults', ['shiftCounts' => $shiftCounts])->with("totalJobs",$totalPeopleForCurrentDay)->with("total",$totalPeopleForCurrentDay); 
-    
     }
     /**
      * Display the specified resource.

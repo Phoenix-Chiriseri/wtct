@@ -62,7 +62,6 @@
                 <hr class="my-4">
                 <p>Total People For Today {{$total}}</p>
                 <a href="/" class="btn btn-success">Add Entry</a>
-                <a href="/removeEntry" class="btn btn-success">Remove Entry</a>
             </div>
         </div>
     </div>
