@@ -28,3 +28,7 @@ Route::get('viewResults', [SupportWorkersController::class, 'index'])->name("vie
 Route::get('removeEntry', [SupportWorkersController::class, 'removeEntry'])->name("removeEntry");
 Route::post('removeEntry', [SupportWorkersController::class, 'actionRemoveEntry'])->name("removeEntry");
 
+
+Auth::routes();
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');

@@ -74,7 +74,7 @@
                             <i class="fa-regular fa-user"></i>{{ __('Add/Remove Users ') }}</button>
                     </form>
                     </button>
-                        <a href="{{ route('viewResults') }}" class="btn btn-info">View Results</a>
+                        <a href="{{ route('viewResults') }}" class="btn btn-info"><i class = "fa-fa-eye"></i>View Results</a>
                 </div>
             </div>
         </div>
