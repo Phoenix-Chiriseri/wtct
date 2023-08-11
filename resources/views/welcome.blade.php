@@ -1,6 +1,6 @@
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
 <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.2.1/css/fontawesome.min.css" integrity="sha384-QYIZto+st3yW+o8+5OHfT6S482Zsvz2WfOzpFSXMF9zqeLcFV0/wlZpMtyFcZALm" crossorigin="anonymous"> 
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 <div class="container">
     <div class="row justify-content-center">
         <div class="col-md-12">
@@ -70,11 +70,11 @@
                             @enderror
                         </div>
 
-                        <button type="submit" class="btn btn-primary">
-                            <i class = "fab fa-users">{{ __('Add/Remove Users ') }}</i>
-                        </button>
-                        <a href="{{ route('viewResults') }}" class="btn btn-danger">View Results</a>
+                        <button type="submit" class="btn btn-secondary">
+                            <i class="fa-regular fa-user"></i>{{ __('Add/Remove Users ') }}</button>
                     </form>
+                    </button>
+                        <a href="{{ route('viewResults') }}" class="btn btn-info">View Results</a>
                 </div>
             </div>
         </div>
