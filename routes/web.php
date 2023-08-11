@@ -25,4 +25,6 @@ Route::get('/', function () {
 });
 Route::post('/createSupportWorker', [SupportWorkersController::class, 'store'])->name("createSupportWorker");
 Route::get('viewResults', [SupportWorkersController::class, 'index'])->name("viewResults");
+Route::get('removeEntry', [SupportWorkersController::class, 'removeEntry'])->name("removeEntry");
+Route::post('removeEntry', [SupportWorkersController::class, 'actionRemoveEntry'])->name("removeEntry");
 
