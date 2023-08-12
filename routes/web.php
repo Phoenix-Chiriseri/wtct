@@ -14,21 +14,20 @@ use App\Http\Controllers\SupportWorkersController;
 |
 */
 
-Route::get('/', function () {
+
+Route::get('/', [SupportWorkersController::class, 'index'])->name("viewResults");
+Route::get('getSupportWorkers', function () {
     $shiftOptions = [
         'morning' => 'Morning Shift',
         'late' => 'Late Shift',
         'night' => 'Night Shift',
         'long' => 'Long Day',
     ];
-    return view('welcome')->with("shiftOptions",$shiftOptions);
+    return view('supportWorkers')->with("shiftOptions",$shiftOptions)->with("supportWorkers");
 });
 Route::post('/createSupportWorker', [SupportWorkersController::class, 'store'])->name("createSupportWorker");
 Route::get('viewResults', [SupportWorkersController::class, 'index'])->name("viewResults");
 Route::get('removeEntry', [SupportWorkersController::class, 'removeEntry'])->name("removeEntry");
 Route::post('removeEntry', [SupportWorkersController::class, 'actionRemoveEntry'])->name("removeEntry");
-
-
 Auth::routes();
-
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
