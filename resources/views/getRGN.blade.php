@@ -2,15 +2,22 @@
 <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 <div class="container">
-    <div class="row justify-content-center">
-        <div class="col-md-12">
-            <div class="jumbotron">
-                <h1 class="display-4">Support Workers</h1>
-                <hr class="my-4">
+<section class="section">
+      <div class="row">
+        <div class="col-lg-12">
+
+          <div class="card">
+            <div class="card-body">
+              <h5 class="card-title">Registered Nurses</h5>
             </div>
+          </div>
+
         </div>
-    </div>
-</div>  
+
+      </div>
+    </section>
+</div>
+<hr>
 <div class="container">
     <div class="row justify-content-center">
         <div class="col-md-12">
@@ -28,7 +35,7 @@
                     window.onload = massge;
                     </script>
                     @endif
-                    <form method="POST" action="{{ route('createSupportWorker') }}">
+                    <form method="POST" action="{{ route('createRGN') }}">
                         @csrf
                         <div class="form-group">
                             <label for="date">{{ __('Date') }}</label>

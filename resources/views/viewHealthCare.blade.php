@@ -1,5 +1,7 @@
 <script src="https://cdn.jsdelivr.net/npm/admin-lte@3.2/dist/js/adminlte.min.js"></script>
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/admin-lte@3.2/dist/css/adminlte.min.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
 <style>
     .ribbon-wrapper {
         position: absolute;
@@ -58,11 +60,10 @@
     <div class="row justify-content-center">
         <div class="col-md-12">
             <div class="jumbotron">
-                <h1 class="display-4">Support Workers</h1>
+                <h1 class="display-4">Health Care Assistants</h1>
                 <hr class="my-4">
                 <p>Total People For Today {{$total}}</p>
-                <a href="/" class="btn btn-success">Add Entry</a>
-                <a href="/removeEntry" class="btn btn-success">Remove Entry</a>
+                <a href="/" class="btn btn-secondary"><i class = "fa fa-users"></i>Home</a>
             </div>
         </div>
     </div>

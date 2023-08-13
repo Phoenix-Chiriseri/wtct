@@ -60,7 +60,7 @@
     <div class="row justify-content-center">
         <div class="col-md-12">
             <div class="jumbotron">
-                <h1 class="display-4">Support Workers</h1>
+                <h1 class="display-4">Registered Nurses</h1>
                 <hr class="my-4">
                 <p>Total People For Today {{$total}}</p>
                 <a href="/" class="btn btn-secondary"><i class = "fa fa-users"></i>Home</a>

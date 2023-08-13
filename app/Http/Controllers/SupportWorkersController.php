@@ -27,8 +27,19 @@ class SupportWorkersController extends Controller
         ->whereDate('date', '>=', $currentDate)
         ->groupBy('date')
         ->get();
-        return view('welcome', ['shiftCounts' => $shiftCounts])->with("totalJobs",$totalPeopleForCurrentDay)->with("total",$totalPeopleForCurrentDay);
+        return view('viewResults', ['shiftCounts' => $shiftCounts])->with("totalJobs",$totalPeopleForCurrentDay)->with("total",$totalPeopleForCurrentDay);
         
+    }
+
+    public function getWorkers(){
+
+        $shiftOptions = [
+            'morning' => 'Morning Shift',
+            'late' => 'Late Shift',
+            'night' => 'Night Shift',
+            'long' => 'Long Day',
+        ];
+        return view('supportWorkers')->with("shiftOptions",$shiftOptions)->with("supportWorkers");
     }
 
     public function removeEntry(){
@@ -64,8 +75,7 @@ class SupportWorkersController extends Controller
         ]);
 
         SupportWorkers::create($validatedData);
-        session()->flash("success","Success Message");
-        return redirect('viewResults');
+        return redirect('home');
     }
 
 

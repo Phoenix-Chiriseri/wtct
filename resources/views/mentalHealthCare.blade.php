@@ -5,7 +5,7 @@
     <div class="row justify-content-center">
         <div class="col-md-12">
             <div class="jumbotron">
-                <h1 class="display-4">Support Workers</h1>
+                <h1 class="display-4">Mental Health Care Assistants</h1>
                 <hr class="my-4">
             </div>
         </div>
@@ -28,7 +28,7 @@
                     window.onload = massge;
                     </script>
                     @endif
-                    <form method="POST" action="{{ route('createSupportWorker') }}">
+                    <form method="POST" action="{{ route('createMentalHealthWorker') }}">
                         @csrf
                         <div class="form-group">
                             <label for="date">{{ __('Date') }}</label>
