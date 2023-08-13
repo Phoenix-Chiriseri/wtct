@@ -163,14 +163,14 @@
                 </div>
 
                 <div class="card-body">
-                  <h5 class="card-title">Total <span>| Entries</span></h5>
+                  <h5 class="card-title">Add An Entry<span>| On Side Bar</span></h5>
 
                   <div class="d-flex align-items-center">
                     <div class="card-icon rounded-circle d-flex align-items-center justify-content-center">
                       <i class="bi bi-people"></i>
                     </div>
                     <div class="ps-3">
-                      <h6>1244</h6>
+              
                     </div>
                   </div>
 
@@ -196,56 +196,42 @@
                 </div>
 
                 <div class="card-body">
-                  <h5 class="card-title">Recent Sales <span>| Today</span></h5>
+                  <h5 class="card-title">Statistics <span>| Today</span></h5>
+                  <table class="table table-striped table-bordered">
+        <thead class="thead-dark">
+            <tr>
+                <th>Category</th>
+                <th>Total People</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>Support Workers</td>
+                <td>{{ $supportWorkers }}</td>
+            </tr>
+            <tr>
+                <td>Health Care Assistants</td>
+                <td>{{ $healthCareAssistants }}</td>
+            </tr>
+            <tr>
+                <td>Mental Health Care Assistants</td>
+                <td>{{ $mentalHealthCareAssistants }}</td>
+            </tr>
+            <tr>
+                <td>RGNs</td>
+                <td>{{ $rgns }}</td>
+            </tr>
+        </tbody>
+    </table>
 
-                  <table class="table table-borderless datatable">
-                    <thead>
-                      <tr>
-                        <th scope="col">#</th>
-                        <th scope="col">Customer</th>
-                        <th scope="col">Product</th>
-                        <th scope="col">Price</th>
-                        <th scope="col">Status</th>
-                      </tr>
-                    </thead>
-                    <tbody>
-                      <tr>
-                        <th scope="row"><a href="#">#2457</a></th>
-                        <td>Brandon Jacob</td>
-                        <td><a href="#" class="text-primary">At praesentium minu</a></td>
-                        <td>$64</td>
-                        <td><span class="badge bg-success">Approved</span></td>
-                      </tr>
-                      <tr>
-                        <th scope="row"><a href="#">#2147</a></th>
-                        <td>Bridie Kessler</td>
-                        <td><a href="#" class="text-primary">Blanditiis dolor omnis similique</a></td>
-                        <td>$47</td>
-                        <td><span class="badge bg-warning">Pending</span></td>
-                      </tr>
-                      <tr>
-                        <th scope="row"><a href="#">#2049</a></th>
-                        <td>Ashleigh Langosh</td>
-                        <td><a href="#" class="text-primary">At recusandae consectetur</a></td>
-                        <td>$147</td>
-                        <td><span class="badge bg-success">Approved</span></td>
-                      </tr>
-                      <tr>
-                        <th scope="row"><a href="#">#2644</a></th>
-                        <td>Angus Grady</td>
-                        <td><a href="#" class="text-primar">Ut voluptatem id earum et</a></td>
-                        <td>$67</td>
-                        <td><span class="badge bg-danger">Rejected</span></td>
-                      </tr>
-                      <tr>
-                        <th scope="row"><a href="#">#2644</a></th>
-                        <td>Raheem Lehner</td>
-                        <td><a href="#" class="text-primary">Sunt similique distinctio</a></td>
-                        <td>$165</td>
-                        <td><span class="badge bg-success">Approved</span></td>
-                      </tr>
-                    </tbody>
-                  </table>
+                  
+@section('content')
+<div class="container">
+    <h2>Results for Today</h2>
+
+    
+</div>
+@endsection
 
                 </div>
 
@@ -263,9 +249,7 @@
                   <h6>Filter</h6>
                 </li>
 
-                <li><a class="dropdown-item" href="#">Today</a></li>
-                <li><a class="dropdown-item" href="#">This Month</a></li>
-                <li><a class="dropdown-item" href="#">This Year</a></li>
+              
               </ul>
             </div>
         </div><!-- End Right side columns -->

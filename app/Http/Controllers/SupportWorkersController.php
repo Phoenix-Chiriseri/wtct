@@ -3,6 +3,9 @@
 namespace App\Http\Controllers;
 
 use App\Models\SupportWorkers;
+use App\Models\HealthCareAssistants;
+use App\Models\MentalHealthAssistants;
+use App\Models\RGN;
 use Illuminate\Http\Request;
 use Carbon\Carbon;
 use Charts;
@@ -18,6 +21,9 @@ class SupportWorkersController extends Controller
     {  
         $currentDate = now()->toDateString();
         $totalPeopleForCurrentDay = SupportWorkers::whereDate('date', $currentDate)->sum('num_people');
+        $totalPeopleForCurrentDay = HealthCareAsiistants::whereDate('date', $currentDate)->sum('num_people');
+        $totalPeopleForCurrentDay = MentalHealthCareAssistants::whereDate('date', $currentDate)->sum('num_people');
+        $totalPeopleForCurrentDay = RGN::whereDate('date', $currentDate)->sum('num_people');
         $shiftCounts = DB::table('support_workers')
         ->select(
             DB::raw('SUM(CASE WHEN shift = "morning" THEN num_people ELSE 0 END) as morningshift'),
