@@ -84,7 +84,9 @@
             <p class="card-text">Day of the week: {{ date('l', strtotime($shiftCount->date)) }}</p>
             <p class="card-text">Morning Shift: {{ $shiftCount->morningshift }}</p>
             <p class="card-text">Night Shift: {{ $shiftCount->nightshift }}</p>
-                </div>
+            <p class="card-text">Late Shift: {{ $shiftCount->lateshift }}</p>
+            <p class="card-text">Long Day Shift: {{ $shiftCount->longshift }}</p>     
+            </div>
             </div>
         </div>
         @endforeach

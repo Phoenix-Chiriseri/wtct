@@ -25,6 +25,7 @@ Route::get('/viewClientSupportWorkers', [SupportWorkersController::class, 'index
 Route::get('/viewClientHealthCareWorkers', [HealthCareAssistantsController::class, 'index'])->name("viewClientHealthCareWorkers");
 Route::get('/viewClientRegisteredNurses', [RGNController::class, 'index'])->name("viewClientRegisteredNurses");
 Route::get('/viewClientMentalHealthNurses', [MentalHealthCareAssistantsController::class, 'getWorkers'])->name("viewClientMentalHealthNurses");
+Route::get('/showClientMentalHealthWorkers', [MentalHealthCareAssistantsController::class, 'index'])->name("showClientMentalHealthWorkers");
 Route::get('/getSupportWorkers', [SupportWorkersController::class, 'getWorkers']);
 Route::get('/getHealthCareWorkers', [HealthCareAssistantsController::class, 'getWorkers']);
 Route::get('/getRGN', [RGNController::class, 'getWorkers']);

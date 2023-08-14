@@ -273,7 +273,7 @@
           <i class="bi bi-journal-text"></i><span>View Registered Nurses</span><i class="bi bi-chevron-down ms-auto"></i>
         </a>
       </li><!-- End Tables Nav -->
-      <a class="nav-link collapsed" data-bs-target="#forms-nav" data-bs-toggle="collapse" href="/viewClientMentalHealthCareNurses">
+      <a class="nav-link collapsed" data-bs-target="#forms-nav" data-bs-toggle="collapse" href="/showClientMentalHealthWorkers">
           <i class="bi bi-journal-text"></i><span>View Mental Healthcare Assistants</span><i class="bi bi-chevron-down ms-auto"></i>
         </a>
       </li><!-- 

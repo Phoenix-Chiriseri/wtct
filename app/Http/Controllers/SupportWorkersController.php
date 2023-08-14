@@ -21,13 +21,12 @@ class SupportWorkersController extends Controller
     {  
         $currentDate = now()->toDateString();
         $totalPeopleForCurrentDay = SupportWorkers::whereDate('date', $currentDate)->sum('num_people');
-        $totalPeopleForCurrentDay = HealthCareAsiistants::whereDate('date', $currentDate)->sum('num_people');
-        $totalPeopleForCurrentDay = MentalHealthCareAssistants::whereDate('date', $currentDate)->sum('num_people');
-        $totalPeopleForCurrentDay = RGN::whereDate('date', $currentDate)->sum('num_people');
         $shiftCounts = DB::table('support_workers')
         ->select(
             DB::raw('SUM(CASE WHEN shift = "morning" THEN num_people ELSE 0 END) as morningshift'),
             DB::raw('SUM(CASE WHEN shift = "night" THEN num_people ELSE 0 END) as nightshift'),
+            DB::raw('SUM(CASE WHEN shift = "late" THEN num_people ELSE 0 END) as lateshift'),
+            DB::raw('SUM(CASE WHEN shift = "long" THEN num_people ELSE 0 END) as longshift'),
             'date'
         )
         ->whereDate('date', '>=', $currentDate)
