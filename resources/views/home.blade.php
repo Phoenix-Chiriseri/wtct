@@ -135,7 +135,7 @@
 
                   <div class="d-flex align-items-center">
                     <div class="card-icon rounded-circle d-flex align-items-center justify-content-center">
-                      <i class="bi bi-cart"></i>
+                     <img src = "{{ asset('/img/logo.png') }}" class = "img-fluid"> 
                     </div>
                   </div>
                 </div>
@@ -167,7 +167,7 @@
 
                   <div class="d-flex align-items-center">
                     <div class="card-icon rounded-circle d-flex align-items-center justify-content-center">
-                      <i class="bi bi-people"></i>
+                      <img src = "{{ asset('/img/logo.png') }}" class = "img-fluid"> 
                     </div>
                     <div class="ps-3">
               
