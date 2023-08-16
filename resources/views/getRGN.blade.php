@@ -1,7 +1,8 @@
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+<link href="{{ asset('/css/style.css') }}" rel="stylesheet">
+<link href="{{ asset('/css/bootstrap.min.css') }}" rel="stylesheet">
 <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-<div class="container">
+<div class="container" style="margin-top: 10px;">
 <section class="section">
       <div class="row">
         <div class="col-lg-12">
@@ -17,7 +18,6 @@
       </div>
     </section>
 </div>
-<hr>
 <div class="container">
     <div class="row justify-content-center">
         <div class="col-md-12">
@@ -63,6 +63,7 @@
                                 </div>
                             @enderror
                         </div>
+                        <hr>
                         <div class="form-group">
                             <label for="shift">{{ __('Shift') }}</label>
                             <select class="form-control" id="shift" name="shift">
@@ -76,10 +77,11 @@
                                 </div>
                             @enderror
                         </div>
-
+                        <br>
                         <button type="submit" class="btn btn-secondary">
                             <i class="fa-regular fa-user"></i>{{ __('Add/Remove Users ') }}</button>
                     </form>
+                    <br>
                     </button>
                     <a href="/home" class="btn btn-danger">Home</a>
             </div>
