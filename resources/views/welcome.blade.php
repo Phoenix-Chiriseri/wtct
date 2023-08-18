@@ -27,6 +27,7 @@
     <link href="{{ asset('/css/quill.bubble.css') }}" rel="stylesheet">
     <link href="{{ asset('/css/remixicon.css') }}" rel="stylesheet">
     <link href="{{ asset('/css/style.css') }}" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
   <!-- =======================================================
   * Template Name: NiceAdmin
@@ -260,47 +261,25 @@
     <ul class="sidebar-nav" id="sidebar-nav">
     <span>
       <li class="nav-item">
-      <a class="nav-link collapsed" data-bs-target="#forms-nav" data-bs-toggle="collapse" href="/viewClientSupportWorkers">
-          <i class="bi bi-journal-text"></i><span>View Support Workers</span><i class="bi bi-chevron-down ms-auto"></i>
+      <a class="" data-bs-target="#forms-nav" data-bs-toggle="collapse" href="/viewClientSupportWorkers">
+         <span>View Support Workers</span>
         </a>
       </li><!-- End Tables Nav -->
-      <a class="nav-link collapsed" data-bs-target="#forms-nav" data-bs-toggle="collapse" href="/viewClientHealthCareWorkers">
-          <i class="bi bi-journal-text"></i><span>View Health Care Assistants</span><i class="bi bi-chevron-down ms-auto"></i>
+      <hr>
+      <a class="" data-bs-target="#forms-nav" data-bs-toggle="collapse" href="/viewClientHealthCareWorkers">
+        <span>View Health Care Assistants</span>
         </a>
       </li><!-- End Tables Nav -->
-      <a class="nav-link collapsed" data-bs-target="#forms-nav" data-bs-toggle="collapse" href="/viewClientRegisteredNurses">
-          <i class="bi bi-journal-text"></i><span>View Registered Nurses</span><i class="bi bi-chevron-down ms-auto"></i>
+      <hr>
+      <a class="" data-bs-target="#forms-nav" data-bs-toggle="collapse" href="/viewClientRegisteredNurses">
+         </i><span>View Registered Nurses</span><i class="bi bi-chevron-down ms-auto"></i>
         </a>
       </li><!-- End Tables Nav -->
-      <a class="nav-link collapsed" data-bs-target="#forms-nav" data-bs-toggle="collapse" href="/showClientMentalHealthWorkers">
-          <i class="bi bi-journal-text"></i><span>View Mental Healthcare Assistants</span><i class="bi bi-chevron-down ms-auto"></i>
+      <hr>
+      <a class="" data-bs-target="#forms-nav" data-bs-toggle="collapse" href="/showClientMentalHealthWorkers">
+       <span>View Mental Healthcare Assistants</span><i class="bi bi-chevron-down ms-auto"></i>
         </a>
-      </li><!-- 
-
-
-
-      <li class="nav-item">
-        <a class="nav-link collapsed" data-bs-target="#charts-nav" data-bs-toggle="collapse" href="#">
-          <i class="bi bi-bar-chart"></i><span>Charts</span><i class="bi bi-chevron-down ms-auto"></i>
-        </a>
-        <ul id="charts-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
-          <li>
-            <a href="charts-chartjs.html">
-              <i class="bi bi-circle"></i><span>Chart.js</span>
-            </a>
-          </li>
-          <li>
-            <a href="charts-apexcharts.html">
-              <i class="bi bi-circle"></i><span>ApexCharts</span>
-            </a>
-          </li>
-          <li>
-            <a href="charts-echarts.html">
-              <i class="bi bi-circle"></i><span>ECharts</span>
-            </a>
-          </li>
-        </ul>
-      </li>!-->
+      </li>
     </ul>
   </aside><!-- End Sidebar-->
   <main id="main" class="main">
@@ -311,7 +290,7 @@
             <div class="card-body profile-card pt-4 d-flex flex-column align-items-center">
               <img src="{{ asset('img/logo.png') }}" alt="Profile" class="rounded-circle">
               <h2>We Choose To Care</h2>
-              <a class="btn btn-info" href="/login">Login Admin</a>
+            
             </div>
           </div>
 
