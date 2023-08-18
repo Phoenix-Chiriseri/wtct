@@ -71,27 +71,34 @@
 </div>
 <div class="container">
     <div class="row">
-        @foreach ($shiftCounts as $shiftCount)
-        <div class="col-md-4">
-            <div class="info-box">
-                <div class="ribbon-wrapper">
-                    <div class="ribbon bg-primary">
-                        WCTC
+        @if(count($shiftCounts) > 0)
+            @foreach ($shiftCounts as $shiftCount)
+                <div class="col-md-4">
+                    <div class="info-box">
+                        <div class="ribbon-wrapper">
+                            <div class="ribbon bg-primary">
+                                WCTC
+                            </div>
+                        </div>
+                        <span class="info-box-icon bg-primary"><i class="fa fa-users"></i></span>
+                        <div class="info-box-content">
+                            <h5 class="card-title">{{ date('d-m-y (D)', strtotime($shiftCount->date)) }}</h5>
+                            <p class="card-text">Day of the week: {{ date('l', strtotime($shiftCount->date)) }}</p>
+                            <p class="card-text">Morning Shift: {{ $shiftCount->morningshift }}</p>
+                            <p class="card-text">Night Shift: {{ $shiftCount->nightshift }}</p>
+                            <p class="card-text">Late Shift: {{ $shiftCount->lateshift }}</p>
+                            <p class="card-text">Long Day Shift: {{ $shiftCount->longshift }}</p>     
+                        </div>
                     </div>
                 </div>
-                <span class="info-box-icon bg-primary"><i class="fa fa-users"></i></span>
-                <div class="info-box-content">
-            <h5 class="card-title">{{ date('d-m-y (D)', strtotime($shiftCount->date)) }}</h5>
-            <p class="card-text">Day of the week: {{ date('l', strtotime($shiftCount->date)) }}</p>
-            <p class="card-text">Morning Shift: {{ $shiftCount->morningshift }}</p>
-            <p class="card-text">Night Shift: {{ $shiftCount->nightshift }}</p>
-            <p class="card-text">Late Shift: {{ $shiftCount->lateshift }}</p>
-            <p class="card-text">Long Day Shift: {{ $shiftCount->longshift }}</p>     
+             @endforeach
+             @else
+            <div class="col-md-12">
+                <p>No Support Workers Available</p>
             </div>
-            </div>
-        </div>
-        @endforeach
+        @endif
     </div>
+</div>
     <div class="row justify-content-center">
         <div class="col-md-12">
             

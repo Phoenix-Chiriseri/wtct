@@ -49,14 +49,6 @@
       </a>
       <i class="bi bi-list toggle-sidebar-btn"></i>
     </div><!-- End Logo -->
-
-    <div class="search-bar">
-      <form class="search-form d-flex align-items-center" method="POST" action="#">
-        <input type="text" name="query" placeholder="Search" title="Enter search keyword">
-        <button type="submit" title="Search"><i class="bi bi-search"></i></button>
-      </form>
-    </div><!-- End Search Bar -->
-
     <nav class="header-nav ms-auto">
       <ul class="d-flex align-items-center">
 
@@ -235,8 +227,8 @@
 
   </header><!-- End Header -->
   <!-- ======= Sidebar ======= -->
-  <aside id="sidebar" class="sidebar">
 
+  <aside id="sidebar" class="sidebar">
     <ul class="sidebar-nav" id="sidebar-nav">
     <span>
       <li class="nav-item">
@@ -244,18 +236,22 @@
           <i class="bi bi-journal-text"></i><span>Support Workers</span><i class="bi bi-chevron-down ms-auto"></i>
         </a>
       </li><!-- End Tables Nav -->
+      <hr>
       <a class="nav-link collapsed" data-bs-target="#forms-nav" data-bs-toggle="collapse" href="/getHealthCareWorkers">
           <i class="bi bi-journal-text"></i><span>Health Care Assistants</span><i class="bi bi-chevron-down ms-auto"></i>
         </a>
       </li><!-- End Tables Nav -->
+      <hr>
       <a class="nav-link collapsed" data-bs-target="#forms-nav" data-bs-toggle="collapse" href="/getRGN">
           <i class="bi bi-journal-text"></i><span>RGN</span><i class="bi bi-chevron-down ms-auto"></i>
         </a>
       </li><!-- End Tables Nav -->
+      <hr>
       <a class="nav-link collapsed" data-bs-target="#forms-nav" data-bs-toggle="collapse" href="/getMentalHealthCareWorkers">
           <i class="bi bi-journal-text"></i><span>Mental Healthcare Assistants</span><i class="bi bi-chevron-down ms-auto"></i>
         </a>
       </li>
+      <hr>
     </ul>
 
   </aside>
@@ -282,7 +278,7 @@
         <div class="col-lg-12">
           <div class="row">
             <!-- Sales Card -->
-            <div class="col-xxl-6 col-md-6">
+            <div class="col-xxl-12 col-md-6">
               <div class="card info-card sales-card">
 
                 <div class="filter">
@@ -312,31 +308,6 @@
             </div><!-- End Sales Card -->
             <!-- Revenue Card -->
             <!-- Customers Card -->
-            <div class="col-xxl-6 col-xl-12">
-              <div class="card info-card customers-card">
-                <div class="filter">
-                  <a class="icon" href="#" data-bs-toggle="dropdown"><i class="bi bi-three-dots"></i></a>
-                  <ul class="dropdown-menu dropdown-menu-end dropdown-menu-arrow">
-                    <li class="dropdown-header text-start">
-                      <h6>Filter</h6>
-                    </li>
-                    <li><a class="dropdown-item" href="#">Today</a></li>
-                    <li><a class="dropdown-item" href="#">This Month</a></li>
-                    <li><a class="dropdown-item" href="#">This Year</a></li>
-                  </ul>
-                </div>
-                <div class="card-body">
-                  <h5 class="card-title">Add An Entry<span>| On Side Bar</span></h5>
-                  <div class="d-flex align-items-center">
-                    <div class="card-icon rounded-circle d-flex align-items-center justify-content-center">
-                      <img src = "{{ asset('/img/logo.png') }}" class = "img-fluid"> 
-                    </div>
-                    <div class="ps-3">
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div><!-- End Customers Card -->
             <!-- Recent Sales -->
             <div class="col-12">
               <div class="card recent-sales overflow-auto">
@@ -424,16 +395,10 @@
       &copy; Copyright <strong><span>B-E Digital</span></strong>. All Rights Reserved
     </div>
     <div class="credits">
-      <!-- All the links in the footer should remain intact. -->
-      <!-- You can delete the links only if you purchased the pro version. -->
-      <!-- Licensing information: https://bootstrapmade.com/license/ -->
-      <!-- Purchase the pro version with working PHP/AJAX contact form: https://bootstrapmade.com/nice-admin-bootstrap-admin-html-template/ -->
       Developed By <a href="https://bootstrapmade.com/">Itai Neil Chiriseri</a>
     </div>
   </footer><!-- End Footer -->
-
   <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
-
   <!-- Vendor JS Files -->
   <script src = "{{ asset('/js/apexcharts.min.js') }}></script>
   <script src = "{{ asset('/js/bootstrap.bundle.min.js') }}></script>
@@ -444,10 +409,5 @@
   <script src = "{{ asset('/js/tinymce.min.js') }}></script>
   <script src = "{{ asset('/js/validate.js') }}></script>
   <script src = "{{ asset('/js/main.js') }}></script>
-
-  <!-- Template Main JS File -->
-  <script src="assets/js/main.js"></script>
-
 </body>
-
 </html>
