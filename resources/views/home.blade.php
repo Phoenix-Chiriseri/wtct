@@ -13,23 +13,16 @@
   <link href="assets/img/favicon.png" rel="icon">
   <link href="assets/img/apple-touch-icon.png" rel="apple-touch-icon">
 
-  <!-- Google Fonts -->
-  <link href="https://fonts.gstatic.com" rel="preconnect">
-  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Nunito:300,300i,400,400i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
-
-  <!-- Vendor CSS Files -->
-    <link href="{{ asset('/css/style.css') }}" rel="stylesheet">
-    <link href="{{ asset('/css/bootstrap.min.css') }}" rel="stylesheet">
-    <link href="{{ asset('/css/bootstrap-icons.css') }}" rel="stylesheet">
-    <link href="{{ asset('/css/boxicons.min.css') }}" rel="stylesheet">
-    <link href="{{ asset('/css/quill.snow.css') }}" rel="stylesheet">
-    <link href="{{ asset('/css/quill.bubble.css') }}" rel="stylesheet">
-    <link href="{{ asset('/css/remixicon.css') }}" rel="stylesheet">
-    <link href="{{ asset('/css/style.css') }}" rel="stylesheet">
-
-
-  <!-- Template Main CSS File -->
-  <link href="assets/css/style.css" rel="stylesheet">
+  <link rel="dns-prefetch" href="//fonts.bunny.net">
+  <link href="{{ asset('/css/style.css') }}" rel="stylesheet">
+  <link href="{{ asset('/css/bootstrap.min.css') }}" rel="stylesheet">
+  <link href="{{ asset('/css/bootstrap-icons/bootstrap-icons.css') }}" rel="stylesheet">
+  <link href="{{ asset('/css/boxicons/boxicons.min.css') }}" rel="stylesheet">
+  <link href="{{ asset('/css/quill/quill.snow.css') }}" rel="stylesheet">
+  <link href="{{ asset('/css/quill/quill.bubble.css') }}" rel="stylesheet">
+  <link href="{{ asset('/css/remixicon/.css') }}" rel="stylesheet">
+  <link href="{{ asset('/css/style.css') }}" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
   <!-- =======================================================
   * Template Name: NiceAdmin
@@ -60,10 +53,7 @@
 
         <li class="nav-item dropdown">
 
-          <a class="nav-link nav-icon" href="#" data-bs-toggle="dropdown">
-            <i class="bi bi-bell"></i>
-            
-          </a><!-- End Notification Icon -->
+         
 
           <ul class="dropdown-menu dropdown-menu-end dropdown-menu-arrow notifications">
             <li class="dropdown-header">
@@ -148,18 +138,6 @@
             <li>
               <hr class="dropdown-divider">
             </li>
-
-            <li class="message-item">
-              <a href="#">
-                <img src="assets/img/messages-1.jpg" alt="" class="rounded-circle">
-                <div>
-                  <h4>Maria Hudson</h4>
-                  <p>Velit asperiores et ducimus soluta repudiandae labore officia est ut...</p>
-                  <p>4 hrs. ago</p>
-                </div>
-              </a>
-            </li>
-            <li>
               <hr class="dropdown-divider">
             </li>
 
@@ -229,31 +207,36 @@
   <!-- ======= Sidebar ======= -->
 
   <aside id="sidebar" class="sidebar">
+    
     <ul class="sidebar-nav" id="sidebar-nav">
-    <span>
-      <li class="nav-item">
-      <a class="nav-link collapsed" data-bs-target="#forms-nav" data-bs-toggle="collapse" href="/getSupportWorkers">
-          <i class="bi bi-journal-text"></i><span>Support Workers</span><i class="bi bi-chevron-down ms-auto"></i>
-        </a>
-      </li><!-- End Tables Nav -->
-      <hr>
-      <a class="nav-link collapsed" data-bs-target="#forms-nav" data-bs-toggle="collapse" href="/getHealthCareWorkers">
-          <i class="bi bi-journal-text"></i><span>Health Care Assistants</span><i class="bi bi-chevron-down ms-auto"></i>
-        </a>
-      </li><!-- End Tables Nav -->
-      <hr>
-      <a class="nav-link collapsed" data-bs-target="#forms-nav" data-bs-toggle="collapse" href="/getRGN">
-          <i class="bi bi-journal-text"></i><span>RGN</span><i class="bi bi-chevron-down ms-auto"></i>
-        </a>
-      </li><!-- End Tables Nav -->
-      <hr>
-      <a class="nav-link collapsed" data-bs-target="#forms-nav" data-bs-toggle="collapse" href="/getMentalHealthCareWorkers">
-          <i class="bi bi-journal-text"></i><span>Mental Healthcare Assistants</span><i class="bi bi-chevron-down ms-auto"></i>
-        </a>
-      </li>
-      <hr>
-    </ul>
 
+      <li class="nav-item">
+        <a class="nav-link " href="index.html">
+          <i class="bi bi-grid"></i>
+          <span>Choose Option</span>
+        </a>
+      </li><!-- End Dashboard Nav -->
+      <li class="nav-item">
+        <a class="nav-link collapsed" data-bs-target="#components-nav" data-bs-toggle="collapse" href="/getSupportWorkers">
+          <i class="bi bi-person-plus"></i><span>Support Workers</span><i class="bi bi-chevron-down ms-auto"></i>
+        </a>
+      </li><!-- End Components Nav -->
+      <li class="nav-item">
+        <a class="nav-link collapsed" data-bs-target="#components-nav" data-bs-toggle="collapse" href="/getHealthCareWorkers">
+          <i class="bi bi-person-plus"></i><span>Health Care Workers</span><i class="bi bi-chevron-down ms-auto"></i>
+        </a>
+      </li><!-- End Components Nav -->
+      <li class="nav-item">
+        <a class="nav-link collapsed" data-bs-target="#components-nav" data-bs-toggle="collapse" href="/getRGN">
+          <i class="bi bi-person-plus"></i><span>Registered Nurses</span><i class="bi bi-chevron-down ms-auto"></i>
+        </a>
+      </li><!-- End Components Nav -->
+      <li class="nav-item">
+        <a class="nav-link collapsed" data-bs-target="#components-nav" data-bs-toggle="collapse" href="/getMentalHealthCareWorkers">
+          <i class="bi bi-person-plus"></i><span>Mental Health Care Workers</span><i class="bi bi-chevron-down ms-auto"></i>
+        </a>
+      </li><!-- End Components Nav -->
+    </ul>
   </aside>
 
   <main id="main" class="main">
@@ -389,6 +372,16 @@
 
   </main><!-- End #main -->
 
+    <!-- Vendor JS Files -->
+    <script src="{{ asset('/js/main.js') }}"></script>
+    <script src="{{ asset('/js/vendor/bootstrap/js/bootstrap.bundle.min.js')}}"></script>
+    <script src="{{ asset('/js/vendor/chart.js/chart.umd.js')}}"></script>
+    <script src="{{ asset('/js/vendor/echarts/chart.umd.js')}}"></script>
+    <script src="{{ asset('/js/vendor/quill/quill.min.js')}}"></script>
+    <script src="{{ asset('/js/vendor/simple-datatables/simple-datatables.js')}}"></script>
+    <script src="{{ asset('/js/vendor/tinymce/tinymce.min.js')}}"></script>
+    <script src="{{ asset('/js/vendor/php-email-form/validate.js')}}"></script>
+    <!-- Template Main JS File -->
   <!-- ======= Footer ======= -->
   <footer id="footer" class="footer">
     <div class="copyright">
@@ -400,14 +393,7 @@
   </footer><!-- End Footer -->
   <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
   <!-- Vendor JS Files -->
-  <script src = "{{ asset('/js/apexcharts.min.js') }}></script>
-  <script src = "{{ asset('/js/bootstrap.bundle.min.js') }}></script>
-  <script src = "{{ asset('/js/chart.umd.js') }}></script>
-  <script src = "{{ asset('/js/echarts.min.js') }}></script>
-  <script src = "{{ asset('/js/quill.min.js') }}></script>
-  <script src = "{{ asset('/js/simple-datatables.js') }}></script>
-  <script src = "{{ asset('/js/tinymce.min.js') }}></script>
-  <script src = "{{ asset('/js/validate.js') }}></script>
-  <script src = "{{ asset('/js/main.js') }}></script>
+  <!-- Vendor JS Files -->
+  <!-- Template Main JS File -->
 </body>
 </html>
