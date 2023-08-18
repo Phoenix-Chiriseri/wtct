@@ -19,21 +19,28 @@ class SupportWorkersController extends Controller
      */
     public function index()
     {  
-        $currentDate = now()->toDateString();
-        $totalPeopleForCurrentDay = SupportWorkers::whereDate('date', $currentDate)->sum('num_people');
-        $shiftCounts = DB::table('support_workers')
+        $startDate = Carbon::now()->toDateString();
+        $endDate = Carbon::now()->addDays(6)->toDateString();
+        $totalPeopleWithinWeek = SupportWorkers::whereDate('date', '>=', $startDate)
+        ->whereDate('date', '<=', $endDate)
+        ->sum('num_people');
+
+       $shiftCounts = DB::table('support_workers')
         ->select(
-            DB::raw('SUM(CASE WHEN shift = "morning" THEN num_people ELSE 0 END) as morningshift'),
-            DB::raw('SUM(CASE WHEN shift = "night" THEN num_people ELSE 0 END) as nightshift'),
-            DB::raw('SUM(CASE WHEN shift = "late" THEN num_people ELSE 0 END) as lateshift'),
-            DB::raw('SUM(CASE WHEN shift = "long" THEN num_people ELSE 0 END) as longshift'),
-            'date'
-        )
-        ->whereDate('date', '>=', $currentDate)
-        ->groupBy('date')
-        ->get();
-        return view('viewResults', ['shiftCounts' => $shiftCounts])->with("totalJobs",$totalPeopleForCurrentDay)->with("total",$totalPeopleForCurrentDay);
-        
+        DB::raw('SUM(CASE WHEN shift = "morning" THEN num_people ELSE 0 END) as morningshift'),
+        DB::raw('SUM(CASE WHEN shift = "night" THEN num_people ELSE 0 END) as nightshift'),
+        DB::raw('SUM(CASE WHEN shift = "late" THEN num_people ELSE 0 END) as lateshift'),
+        DB::raw('SUM(CASE WHEN shift = "long" THEN num_people ELSE 0 END) as longshift'),
+        'date'
+       )
+       ->whereDate('date', '>=', $startDate)
+       ->whereDate('date', '<=', $endDate)
+       ->groupBy('date')
+       ->get();  
+        return view('viewResults', [
+            'shiftCounts' => $shiftCounts,
+            'total' => $totalPeopleWithinWeek
+        ]);
     }
 
     public function getWorkers(){

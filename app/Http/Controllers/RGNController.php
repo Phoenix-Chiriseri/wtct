@@ -16,20 +16,25 @@ class RGNController extends Controller
     public function index()
     {
         //
-        $currentDate = now()->toDateString();
-        $totalPeopleForCurrentDay = RGN::whereDate('date', $currentDate)->sum('num_people');
-        $shiftCounts = DB::table('r_g_n_s')
+        $startDate = Carbon::now()->toDateString();
+        $endDate = Carbon::now()->addDays(6)->toDateString();
+        $totalPeopleWithinWeek = RGN::whereDate('date', '>=', $startDate)
+        ->whereDate('date', '<=', $endDate)
+        ->sum('num_people');
+
+       $shiftCounts = DB::table('r_g_n_s')
         ->select(
-            DB::raw('SUM(CASE WHEN shift = "morning" THEN num_people ELSE 0 END) as morningshift'),
-            DB::raw('SUM(CASE WHEN shift = "night" THEN num_people ELSE 0 END) as nightshift'),
-            DB::raw('SUM(CASE WHEN shift = "late" THEN num_people ELSE 0 END) as lateshift'),
-            DB::raw('SUM(CASE WHEN shift = "long" THEN num_people ELSE 0 END) as longshift'),
-            'date'
-        )
-        ->whereDate('date', '>=', $currentDate)
-        ->groupBy('date')
-        ->get();
-        return view('viewRegisteredNurses', ['shiftCounts' => $shiftCounts])->with("totalJobs",$totalPeopleForCurrentDay)->with("total",$totalPeopleForCurrentDay);
+        DB::raw('SUM(CASE WHEN shift = "morning" THEN num_people ELSE 0 END) as morningshift'),
+        DB::raw('SUM(CASE WHEN shift = "night" THEN num_people ELSE 0 END) as nightshift'),
+        DB::raw('SUM(CASE WHEN shift = "late" THEN num_people ELSE 0 END) as lateshift'),
+        DB::raw('SUM(CASE WHEN shift = "long" THEN num_people ELSE 0 END) as longshift'),
+        'date'
+       )
+       ->whereDate('date', '>=', $startDate)
+       ->whereDate('date', '<=', $endDate)
+       ->groupBy('date')
+       ->get();  
+        return view('viewRegisteredNurses', ['shiftCounts' => $shiftCounts])->with("total",$totalPeopleWithinWeek);
     }
 
     /**
