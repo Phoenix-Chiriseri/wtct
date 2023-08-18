@@ -62,7 +62,7 @@
 </div>
 <div class="container">
     <div class="row">
-        <div class="col-md-4">
+        <div class="col-md-12">
             <div class="jumbotron">
                 <h1 class="display-4">Health Care Assistants</h1>
                 <hr class="my-4">
@@ -71,67 +71,9 @@
                 <a href="/" class="btn btn-secondary"><i class = "fa fa-users"></i>Home</a>
             </div>
         </div>
-        <div class = "col-md-8">
-            <div style="max-width: 400px; margin: 0 auto;">
-                <canvas id="shiftPieChart"></canvas>
-                
-    <script>
-        // Your PHP data here (replace with actual data)
-        var shiftCounts = <?php echo json_encode($shiftCounts); ?>;
-        
-        // Extracting data for chart
-        var labels = shiftCounts.map(entry => entry.date);
-        var morningShiftData = shiftCounts.map(entry => entry.morningshift);
-        var nightShiftData = shiftCounts.map(entry => entry.nightshift);
-        var lateShiftData = shiftCounts.map(entry => entry.lateshift);
-        var longShiftData = shiftCounts.map(entry => entry.longshift);
-        
-        // Calculate total shifts for each day
-        var totalShifts = shiftCounts.map(entry => entry.morningshift + entry.nightshift + entry.lateshift + entry.longshift);
-        
-        // Create descriptions for each slice
-        var descriptions = labels.map((label, index) => {
-            return `Date: ${label}\nTotal Shifts: ${totalShifts[index]}\nMorning: ${morningShiftData[index]}, Night: ${nightShiftData[index]}, Late: ${lateShiftData[index]}, Long: ${longShiftData[index]}`;
-        });
-        
-        // Create a pie chart
-        var ctx = document.getElementById('shiftPieChart').getContext('2d');
-        var myPieChart = new Chart(ctx, {
-            type: 'pie',
-            data: {
-                labels: labels,
-                datasets: [{
-                    data: totalShifts,
-                    backgroundColor: [
-                        'rgba(75, 192, 192, 0.8)',
-                        'rgba(255, 99, 132, 0.8)',
-                        'rgba(54, 162, 235, 0.8)',
-                        'rgba(153, 102, 255, 0.8)',
-                        // Add more colors if needed
-                    ],
-                }]
-            },
-            options: {
-                responsive: true,
-                legend: {
-                    display: true,
-                    position: 'bottom',
-                },
-                tooltips: {
-                    callbacks: {
-                        label: function (tooltipItem, data) {
-                            return descriptions[tooltipItem.index];
-                        }
-                    }
-                }
-            }
-        });
-    </script>
-            </div>
         </div>
     </div>
 </div>
-
 <div class="container">
     <div class="row">
         @foreach ($shiftCounts as $shiftCount)
