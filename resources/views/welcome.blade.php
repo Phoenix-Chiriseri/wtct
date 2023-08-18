@@ -89,22 +89,22 @@
       </li><!-- End Dashboard Nav -->
       <li class="nav-item">
         <a class="nav-link collapsed" data-bs-target="#components-nav" data-bs-toggle="collapse" href="/viewClientSupportWorkers">
-          <i class="bi bi-menu-button-wide"></i><span>Support Workers</span><i class="bi bi-chevron-down ms-auto"></i>
+          <i class="bi bi-person-plus"></i><span>Support Workers</span><i class="bi bi-chevron-down ms-auto"></i>
         </a>
       </li><!-- End Components Nav -->
       <li class="nav-item">
         <a class="nav-link collapsed" data-bs-target="#components-nav" data-bs-toggle="collapse" href="/viewClientHealthCareWorkers">
-          <i class="bi bi-menu-button-wide"></i><span>Health Care Workers</span><i class="bi bi-chevron-down ms-auto"></i>
+          <i class="bi bi-person-plus"></i><span>Health Care Workers</span><i class="bi bi-chevron-down ms-auto"></i>
         </a>
       </li><!-- End Components Nav -->
       <li class="nav-item">
         <a class="nav-link collapsed" data-bs-target="#components-nav" data-bs-toggle="collapse" href="/viewClientRegisteredNurses">
-          <i class="bi bi-menu-button-wide"></i><span>Registered Nurses</span><i class="bi bi-chevron-down ms-auto"></i>
+          <i class="bi bi-person-plus"></i><span>Registered Nurses</span><i class="bi bi-chevron-down ms-auto"></i>
         </a>
       </li><!-- End Components Nav -->
       <li class="nav-item">
         <a class="nav-link collapsed" data-bs-target="#components-nav" data-bs-toggle="collapse" href="/showClientMentalHealthWorkers">
-          <i class="bi bi-menu-button-wide"></i><span>Mental Health Care Workers</span><i class="bi bi-chevron-down ms-auto"></i>
+          <i class="bi bi-person-plus"></i><span>Mental Health Care Workers</span><i class="bi bi-chevron-down ms-auto"></i>
         </a>
       </li><!-- End Components Nav -->
     </ul>
