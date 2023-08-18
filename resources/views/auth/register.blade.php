@@ -47,7 +47,6 @@
                     <div class="col-12">
                       <label for="yourUsername" class="form-label">Password</label>
                       <div class="input-group has-validation">
-                        <span class="input-group-text" id="inputGroupPrepend">@</span>
                         <input id="password" type="password" class="form-control @error('password') is-invalid @enderror" name="password" required autocomplete="new-password">
 
                                 @error('password')

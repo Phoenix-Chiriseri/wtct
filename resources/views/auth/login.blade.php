@@ -27,7 +27,7 @@
                         @csrf
 
                     <div class="col-12">
-                      <label for="yourUsername" class="form-label">Username</label>
+                      <label for="yourUsername" class="form-label">Email</label>
                       <div class="input-group has-validation">
                         <span class="input-group-text" id="inputGroupPrepend">@</span>
                         <input type="text" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" id="yourUsername"  required>
