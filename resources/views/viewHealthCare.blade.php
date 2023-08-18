@@ -62,7 +62,8 @@
             <div class="jumbotron">
                 <h1 class="display-4">Health Care Assistants</h1>
                 <hr class="my-4">
-                <p>Total People For Today {{$total}}</p>
+                <p>Total People For The Week {{$total}}</p>
+                <p>Total People For Today {{$today}}</p>
                 <a href="/" class="btn btn-secondary"><i class = "fa fa-users"></i>Home</a>
             </div>
         </div>

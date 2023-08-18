@@ -21,6 +21,8 @@ class SupportWorkersController extends Controller
     {  
         $startDate = Carbon::now()->toDateString();
         $endDate = Carbon::now()->addDays(6)->toDateString();
+        $totalPeopleForCurrentDay = SupportWorkers::whereDate('date', '=', now()->toDateString())
+        ->sum('num_people');
         $totalPeopleWithinWeek = SupportWorkers::whereDate('date', '>=', $startDate)
         ->whereDate('date', '<=', $endDate)
         ->sum('num_people');
@@ -39,7 +41,8 @@ class SupportWorkersController extends Controller
        ->get();  
         return view('viewResults', [
             'shiftCounts' => $shiftCounts,
-            'total' => $totalPeopleWithinWeek
+            'total' => $totalPeopleWithinWeek,
+            'today'=>$totalPeopleForCurrentDay
         ]);
     }
 

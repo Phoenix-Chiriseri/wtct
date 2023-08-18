@@ -18,6 +18,8 @@ class MentalHealthCareAssistantsController extends Controller
         //
         $startDate = Carbon::now()->toDateString();
         $endDate = Carbon::now()->addDays(6)->toDateString();
+        $totalPeopleForCurrentDay = MentalHealthCareAssistants::whereDate('date', '=', now()->toDateString())
+        ->sum('num_people');
         $totalPeopleWithinWeek = MentalHealthCareAssistants::whereDate('date', '>=', $startDate)
         ->whereDate('date', '<=', $endDate)
         ->sum('num_people');
@@ -34,7 +36,7 @@ class MentalHealthCareAssistantsController extends Controller
        ->whereDate('date', '<=', $endDate)
        ->groupBy('date')
        ->get();  
-        return view('viewMentalHealthWorkers', ['shiftCounts' => $shiftCounts])->with("total",$totalPeopleWithinWeek);
+        return view('viewMentalHealthWorkers', ['shiftCounts' => $shiftCounts])->with("total",$totalPeopleWithinWeek)->with("today",$totalPeopleForCurrentDay);
     }
 
     /**

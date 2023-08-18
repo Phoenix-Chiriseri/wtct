@@ -18,6 +18,8 @@ class RGNController extends Controller
         //
         $startDate = Carbon::now()->toDateString();
         $endDate = Carbon::now()->addDays(6)->toDateString();
+        $totalPeopleForCurrentDay = SupportWorkers::whereDate('date', '=', now()->toDateString())
+        ->sum('num_people');
         $totalPeopleWithinWeek = RGN::whereDate('date', '>=', $startDate)
         ->whereDate('date', '<=', $endDate)
         ->sum('num_people');
@@ -34,7 +36,8 @@ class RGNController extends Controller
        ->whereDate('date', '<=', $endDate)
        ->groupBy('date')
        ->get();  
-        return view('viewRegisteredNurses', ['shiftCounts' => $shiftCounts])->with("total",$totalPeopleWithinWeek);
+        return view('viewRegisteredNurses', ['shiftCounts' => $shiftCounts])->with("total",$totalPeopleWithinWeek)
+        ->with("today",$totalPeopleForCurrentDay);
     }
 
     /**
