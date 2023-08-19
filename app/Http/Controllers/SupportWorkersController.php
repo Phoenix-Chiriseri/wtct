@@ -46,6 +46,21 @@ class SupportWorkersController extends Controller
         ]);
     }
 
+    public function deleteRecords(){
+        return view('deleteSupportWorkers');
+    }
+
+    public function deleteRecordsAction(Request $request){
+
+        $from_date = $request->input('from_date');
+        $to_date = $request->input('to_date');
+        $results = DB::table('support_workers')
+            ->whereBetween('date', [$from_date, $to_date])
+            ->delete();
+        echo "deleted";
+        
+    }
+
     public function getWorkers(){
 
         $shiftOptions = [

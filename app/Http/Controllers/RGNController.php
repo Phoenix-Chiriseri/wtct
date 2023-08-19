@@ -73,6 +73,14 @@ class RGNController extends Controller
         return redirect('home');
     }
 
+    public function deleteRecords(){
+
+        return view('deleteRegisteredNurses');
+
+
+    }
+
+   
     /**
      * Display the specified resource.
      */

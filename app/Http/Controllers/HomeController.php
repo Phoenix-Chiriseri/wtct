@@ -44,4 +44,10 @@ class HomeController extends Controller
         ->with("healthCareAssistants",$healthCareAssistants)
         ->with("mentalHealthCareAssistants",$mentalHealthCareAssistants)->with("rgns",$rgns);
     }
+
+    public function deleteRecords(){
+
+       return view('deleteRecords');
+
+    }
 }

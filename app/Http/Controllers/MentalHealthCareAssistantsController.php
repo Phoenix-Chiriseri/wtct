@@ -47,6 +47,11 @@ class MentalHealthCareAssistantsController extends Controller
         //
     }
 
+    public function deleteRecords(){
+
+        return view('deleteMentalHealthCare');
+    }
+
     public function getWorkers(){
 
         $shiftOptions = [

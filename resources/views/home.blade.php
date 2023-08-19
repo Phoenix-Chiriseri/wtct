@@ -97,7 +97,7 @@
         <a class="nav-link collapsed" data-bs-target="#components-nav" data-bs-toggle="collapse" href="/getMentalHealthCareWorkers">
           <i class="bi bi-person-plus"></i><span>Mental Health Care Workers</span><i class="bi bi-chevron-down ms-auto"></i>
         </a>
-      </li><!-- End Components Nav -->
+      </li>
     </ul>
   </aside>
 

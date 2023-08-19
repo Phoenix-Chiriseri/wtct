@@ -6,15 +6,13 @@
 <section class="section">
       <div class="row">
         <div class="col-lg-12">
-
           <div class="card">
             <div class="card-body">
               <h5 class="card-title">Registered Nurses</h5>
+              <a href = "deleteRegisteredNurses" class = "btn btn-danger">Delete Records</a>
             </div>
           </div>
-
         </div>
-
       </div>
     </section>
 </div>

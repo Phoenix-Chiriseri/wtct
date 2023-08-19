@@ -71,6 +71,12 @@ class HealthCareAssistantsController extends Controller
         return redirect('home');
     }
 
+    public function deleteRecords(){
+
+
+        return view('deleteHealthCareWorkers');
+    }
+
     /**
      * Display the specified resource.
      */
