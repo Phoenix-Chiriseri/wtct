@@ -57,7 +57,7 @@ class SupportWorkersController extends Controller
         $results = DB::table('support_workers')
             ->whereBetween('date', [$from_date, $to_date])
             ->delete();
-        echo "deleted";
+        return view('dashboard');
         
     }
 
