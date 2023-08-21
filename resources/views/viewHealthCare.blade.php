@@ -99,7 +99,7 @@
                 </div>
                 <span class="info-box-icon bg-primary"><i class="fa fa-users"></i></span>
                 <div class="info-box-content">
-            <h5 class="card-title">{{ date('Y-m-d (D)', strtotime($shiftCount->date)) }}</h5>
+            <h5 class="card-title">{{ date('d-y-m (D)', strtotime($shiftCount->date)) }}</h5>
             <p class="card-text">Day of the week: {{ date('l', strtotime($shiftCount->date)) }}</p>
             <p class="card-text">Morning Shift: {{ $shiftCount->morningshift }}</p>
             <p class="card-text">Night Shift: {{ $shiftCount->nightshift }}</p>
