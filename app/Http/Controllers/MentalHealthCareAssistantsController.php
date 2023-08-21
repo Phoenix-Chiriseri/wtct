@@ -94,7 +94,7 @@ class MentalHealthCareAssistantsController extends Controller
         $from_date = $request->input('from_date');
         $to_date = $request->input('to_date');
     
-        $results = DB::table('health_care_assistants')
+        $results = DB::table('mental_health_care_assistants')
             ->whereBetween('date', [$from_date, $to_date])
             ->delete();
     
