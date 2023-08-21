@@ -10,6 +10,7 @@ use Illuminate\Http\Request;
 use Carbon\Carbon;
 use Charts;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Validator;
 
 
 class SupportWorkersController extends Controller
@@ -17,6 +18,7 @@ class SupportWorkersController extends Controller
     /**
      * Display a listing of the resource.
      */
+
     public function index()
     {  
         $startDate = Carbon::now()->toDateString();
@@ -52,12 +54,23 @@ class SupportWorkersController extends Controller
 
     public function deleteRecordsAction(Request $request){
 
+        $validator = Validator::make($request->all(), [
+            'from_date' => 'required|date',
+            'to_date' => 'required|date|after_or_equal:from_date',
+        ]);
+    
+        if ($validator->fails()) {
+            return redirect()->back()->withErrors($validator)->withInput();
+        }
+    
         $from_date = $request->input('from_date');
         $to_date = $request->input('to_date');
-        $results = DB::table('support_workers')
+    
+        $results = DB::table('health_care_workers')
             ->whereBetween('date', [$from_date, $to_date])
             ->delete();
-        return view('dashboard');
+    
+        return redirect()->back()->with('success', 'Support Workers deleted successfully.');
         
     }
 
@@ -117,7 +130,7 @@ class SupportWorkersController extends Controller
         $shift = $request->input('shift');
         $totalPeopleForCurrentDay = SupportWorkers::whereDate('date', $date)->sum('num_people');
         
-        // Recalculate the shift counts for the selected shift type
+          //Recalculate the shift counts for the selected shift type
            $shiftCounts = DB::table('support_workers')
             ->select(
                 DB::raw('SUM(CASE WHEN shift = ? THEN num_people + ? ELSE 0 END) as selected_shift'),

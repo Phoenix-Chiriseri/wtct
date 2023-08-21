@@ -33,7 +33,7 @@
                     window.onload = massge;
                     </script>
                     @endif
-                    <form method="POST" action="{{ route('deleteRecords') }}">
+                    <form method="POST" action="{{ route('deleteMentalHealthAction') }}">
                         @csrf
                         <div class="form-group">
                             <label for="date">{{ __('From Date') }}</label>

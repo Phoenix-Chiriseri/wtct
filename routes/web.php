@@ -34,9 +34,11 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
 Route::get('/getNewPosition', [App\Http\Controllers\PositionController::class, 'index'])->name('getNewPosition');
 Route::post('/postNewPosition', [App\Http\Controllers\PositionController::class, 'store'])->name('postNewPosition');
 Route::get('/deleteFromSupportWorkers', [App\Http\Controllers\SupportWorkersController::class, 'deleteRecords'])->name('deleteRecords');
-Route::get('/deleteFromHealthWorkers', [App\Http\Controllers\HealthCareAssistantsController::class, 'deleteRecords'])->name('deleteRecords');
-Route::get('/deleteRegisteredNurses', [App\Http\Controllers\RGNController::class, 'deleteRecords'])->name('deleteRecords');
+Route::get('/deleteFromHealthWorkers', [App\Http\Controllers\HealthCareAssistantsController::class, 'deleteRecords'])->name('deleteFromHealthWorkers');
+Route::post('/deleteFromHealthWorkers', [App\Http\Controllers\HealthCareAssistantsController::class, 'deleteRecordsAction'])->name('deleteRecords');
 Route::get('/deleteMentalHealthCare', [App\Http\Controllers\MentalHealthCareAssistantsController::class, 'deleteRecords'])->name('deleteRecords');
+Route::post('/deleteMentalHealthAction', [App\Http\Controllers\MentalHealthCareAssistantsController::class, 'deleteRecordsAction'])->name('deleteMentalHealthAction');
 Route::post('/deleteFromSupportWorkers', [App\Http\Controllers\SupportWorkersController::class, 'deleteRecordsAction'])->name('deleteRecords');
 Route::post('/deleteFromSupportWorkers', [App\Http\Controllers\SupportWorkersController::class, 'deleteRecordsAction'])->name('deleteRecords');
-
+Route::get('/deleteRegisteredNurses', [App\Http\Controllers\RGN::class, 'deleteRecords'])->name('deleteRegisteredNurses');
+Route::posy('/deleteRegisteredNurses', [App\Http\Controllers\RGN::class, 'deleteRecordsAction'])->name('deleteRegisteredNurses');

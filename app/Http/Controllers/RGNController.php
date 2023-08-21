@@ -80,6 +80,29 @@ class RGNController extends Controller
 
     }
 
+
+    public function deleteRecordsAction(Request $request){
+
+        $validator = Validator::make($request->all(), [
+            'from_date' => 'required|date',
+            'to_date' => 'required|date|after_or_equal:from_date',
+        ]);
+    
+        if ($validator->fails()) {
+            return redirect()->back()->withErrors($validator)->withInput();
+        }
+    
+        $from_date = $request->input('from_date');
+        $to_date = $request->input('to_date');
+    
+        $results = DB::table('health_care_workers')
+            ->whereBetween('date', [$from_date, $to_date])
+            ->delete();
+    
+        return redirect()->back()->with('success', 'Support Workers deleted successfully.');
+        
+    }
+
    
     /**
      * Display the specified resource.

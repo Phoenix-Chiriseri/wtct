@@ -16,6 +16,11 @@
       </div>
     </section>
 </div>
+@if(session('success'))
+    <div class="alert alert-success">
+        {{ session('success') }}
+    </div>
+@endif
 <div class="container">
     <div class="row justify-content-center">
         <div class="col-md-12">
@@ -33,7 +38,7 @@
                     window.onload = massge;
                     </script>
                     @endif
-                    <form method="POST" action="{{ route('deleteRecords') }}">
+                    <form method="POST" action="{{ route('deleteFromHealthWorkers') }}">
                         @csrf
                         <div class="form-group">
                             <label for="date">{{ __('From Date') }}</label>
