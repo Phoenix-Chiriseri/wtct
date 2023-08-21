@@ -1,7 +1,7 @@
 <script src="https://cdn.jsdelivr.net/npm/admin-lte@3.2/dist/js/adminlte.min.js"></script>
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/admin-lte@3.2/dist/css/adminlte.min.css">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.4.1/jspdf.debug.js"></script>
 <style>
     .ribbon-wrapper {
         position: absolute;
@@ -57,7 +57,7 @@
     }
 </style>
 <div class="container">
-    <div class="row justify-content-center">
+    <div class="row justify-content-center" id="pdf-content">
         <div class="col-md-12">
             <div class="jumbotron">
                 <h1 class="display-4">Support Workers</h1>
@@ -69,6 +69,24 @@
         </div>
     </div>
 </div>
+<div class="container">
+    <button onclick="generatePDF()" class = "btn btn-info"><i class = "fa fa-print"></i>Generate PDF</button>
+    <hr>
+    <script>
+        function generatePDF() {
+            var doc = new jsPDF();
+            // HTML content to be converted
+            var htmlContent = document.getElementById('pdf-content').innerHTML;
+        
+            doc.text('Shift Counts Report', 10, 10); // Title
+            doc.fromHTML(htmlContent, 10, 20, {
+                width: 190
+            });
+        
+            // Save the PDF
+            doc.save('shift_counts.pdf');
+        }
+        </script>
 <div class="container">
     <div class="row">
         @if(count($shiftCounts) > 0)
