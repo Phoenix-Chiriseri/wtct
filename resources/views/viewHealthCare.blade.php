@@ -80,12 +80,12 @@
             var doc = new jsPDF();
             // HTML content to be converted
             var htmlContent = document.getElementById('pdf-content').innerHTML; 
-            doc.text('Shift Counts Report', 10, 10); // Title
+            doc.text('Health Care Workers Report', 10, 10); // Title
             doc.fromHTML(htmlContent, 10, 20, {
                 width: 190
             });
             // Save the PDF
-            doc.save('shift_counts.pdf');
+            doc.save('HealthCareWorkersReport.pdf');
         }
         </script>
     <div class="row" id = "pdf-content">
