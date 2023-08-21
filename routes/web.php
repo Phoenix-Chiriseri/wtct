@@ -40,5 +40,5 @@ Route::get('/deleteMentalHealthCare', [App\Http\Controllers\MentalHealthCareAssi
 Route::post('/deleteMentalHealthAction', [App\Http\Controllers\MentalHealthCareAssistantsController::class, 'deleteRecordsAction'])->name('deleteMentalHealthAction');
 Route::post('/deleteFromSupportWorkers', [App\Http\Controllers\SupportWorkersController::class, 'deleteRecordsAction'])->name('deleteRecords');
 Route::post('/deleteFromSupportWorkers', [App\Http\Controllers\SupportWorkersController::class, 'deleteRecordsAction'])->name('deleteRecords');
-Route::get('/deleteRegisteredNurses', [App\Http\Controllers\RGN::class, 'deleteRecords'])->name('deleteRegisteredNurses');
-Route::posy('/deleteRegisteredNurses', [App\Http\Controllers\RGN::class, 'deleteRecordsAction'])->name('deleteRegisteredNurses');
+Route::get('/deleteRegisteredNurses', [App\Http\Controllers\RGNController::class, 'deleteRecords'])->name('deleteRegisteredNurses');
+Route::post('/deleteRegisteredNurses', [App\Http\Controllers\RGNController::class, 'deleteRecordsAction'])->name('deleteRegisteredNurses');
