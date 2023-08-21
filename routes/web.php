@@ -7,6 +7,7 @@ use App\Http\Controllers\MentalHealthCareAssistantsController;
 use App\Http\Controllers\RGNController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\PositionController;
+use App\Http\Controllers\MidwivesController;
 
 
 Route::get('/',function(){
@@ -42,3 +43,4 @@ Route::post('/deleteFromSupportWorkers', [App\Http\Controllers\SupportWorkersCon
 Route::post('/deleteFromSupportWorkers', [App\Http\Controllers\SupportWorkersController::class, 'deleteRecordsAction'])->name('deleteRecords');
 Route::get('/deleteRegisteredNurses', [App\Http\Controllers\RGNController::class, 'deleteRecords'])->name('deleteRegisteredNurses');
 Route::post('/deleteRegisteredNurses', [App\Http\Controllers\RGNController::class, 'deleteRecordsAction'])->name('deleteRegisteredNurses');
+Route::get('/getMidwives', [App\Http\Controllers\MidwivesController::class, 'index'])->name('getMidwives');

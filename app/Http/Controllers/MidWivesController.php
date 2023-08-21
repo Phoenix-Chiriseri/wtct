@@ -13,6 +13,13 @@ class MidWivesController extends Controller
     public function index()
     {
         //
+        $shiftOptions = [
+            'morning' => 'Morning Shift',
+            'late' => 'Late Shift',
+            'night' => 'Night Shift',
+            'long' => 'Long Day',
+        ];
+        return view('getMidwives')->with("shiftOptions",$shiftOptions);
     }
 
     /**

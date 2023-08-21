@@ -13,6 +13,9 @@ return new class extends Migration
     {
         Schema::create('mid_wives', function (Blueprint $table) {
             $table->id();
+            $table->date('date');
+            $table->integer('num_people');
+            $table->string('shift');
             $table->timestamps();
         });
     }
