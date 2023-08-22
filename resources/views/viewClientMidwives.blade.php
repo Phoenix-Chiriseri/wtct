@@ -3,7 +3,6 @@
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/admin-lte@3.2/dist/css/adminlte.min.css">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 <script src="https://cdn.jsdelivr.net/npm/admin-lte@3.2/dist/js/adminlte.min.js"></script>
-
 <style>
     .ribbon-wrapper {
         position: absolute;
@@ -80,12 +79,12 @@
             var doc = new jsPDF();
             // HTML content to be converted
             var htmlContent = document.getElementById('pdf-content').innerHTML; 
-            doc.text('Health Care Workers Report', 10, 10); // Title
+            doc.text('Midwives Report', 10, 10); // Title
             doc.fromHTML(htmlContent, 10, 20, {
                 width: 190
             });
             // Save the PDF
-            doc.save('Midwives.pdf');
+            doc.save('MidwivesReport.pdf');
         }
         </script>
     <div class="row" id = "pdf-content">
@@ -111,8 +110,7 @@
         @endforeach
     </div>
     <div class="row justify-content-center">
-        <div class="col-md-12">
-            
+        <div class="col-md-12">            
         </div>
     </div>
 </div>

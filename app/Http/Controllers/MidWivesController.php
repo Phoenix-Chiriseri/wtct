@@ -102,7 +102,7 @@ class MidWivesController extends Controller
             ->whereBetween('date', [$from_date, $to_date])
             ->delete();
     
-        return redirect()->back()->with('success', 'Support Workers deleted successfully.');
+        return redirect()->back()->with('success', 'Midwives Saved');
         
     }
 
