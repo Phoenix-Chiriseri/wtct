@@ -100,6 +100,11 @@
           <i class="bi bi-person-plus"></i><span>Mental Health Care Workers</span><i class="bi bi-chevron-down ms-auto"></i>
         </a>
       </li><!-- End Components Nav -->
+      <li class="nav-item">
+        <a class="nav-link collapsed" data-bs-target="#components-nav" data-bs-toggle="collapse" href="/viewClientMidwives">
+          <i class="bi bi-person-plus"></i><span>Midwives</span><i class="bi bi-chevron-down ms-auto"></i>
+        </a>
+      </li><!-- End Components Nav -->
     </ul>
 
   </aside><!-- End Sidebar-->

@@ -9,7 +9,7 @@
           <div class="card">
             <div class="card-body">
               <h5 class="card-title">Midwives</h5>
-              <a href = "deleteRegisteredNurses" class = "btn btn-danger">Delete Records</a>
+              <a href = "deleteMidwives" class = "btn btn-danger">Delete Records</a>
             </div>
           </div>
         </div>
@@ -33,7 +33,7 @@
                     window.onload = massge;
                     </script>
                     @endif
-                    <form method="POST" action="{{ route('createRGN') }}">
+                    <form method="POST" action="{{ route('createMidwives') }}">
                         @csrf
                         <div class="form-group">
                             <label for="date">{{ __('Date') }}</label>

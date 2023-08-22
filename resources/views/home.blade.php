@@ -201,6 +201,10 @@
                 <td>RGNs</td>
                 <td>{{ $rgns }}</td>
             </tr>
+            <tr>
+              <td>Midwives</td>
+              <td>{{ $midwives }}</td>
+          </tr>
         </tbody>
     </table>
 

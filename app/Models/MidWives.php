@@ -8,4 +8,10 @@ use Illuminate\Database\Eloquent\Model;
 class MidWives extends Model
 {
     use HasFactory;
+ 
+    protected $fillable = [
+        'date',
+        'num_people',
+        'shift',
+    ];
 }
