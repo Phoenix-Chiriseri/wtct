@@ -44,7 +44,7 @@ class HomeController extends Controller
         $name = $user->name;
         return view('home')->with("name",$name)->with("supportWorkers",$supportWorkers)
         ->with("healthCareAssistants",$healthCareAssistants)
-        ->with("mentalHealthCareAssistants",$mentalHealthCareAssistants)->with("rgns",$rgns)->with("midwives",$midwives);
+        ->with("mentalHealthCareAssistants",$mentalHealthCareAssistants)->with("rgns",$rgns)->with("midwives",$midwives)->with("currentDate",$currentDate);
     }
 
     public function deleteRecords(){

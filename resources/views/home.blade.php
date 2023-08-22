@@ -23,6 +23,7 @@
   <link href="{{ asset('/css/remixicon/.css') }}" rel="stylesheet">
   <link href="{{ asset('/css/style.css') }}" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.4.1/jspdf.debug.js"></script>
 
   <!-- =======================================================
   * Template Name: NiceAdmin
@@ -33,6 +34,19 @@
   ======================================================== -->
 </head>
 <body>
+  <script>
+    function generatePDF() {
+        var doc = new jsPDF();
+        // HTML content to be converted
+        var htmlContent = document.getElementById('pdf-content').innerHTML; 
+        doc.text('Daily Statistics Report', 10, 10); // Title
+        doc.fromHTML(htmlContent, 10, 20, {
+            width: 190
+        });
+        // Save the PDF
+        doc.save('DailyReport.pdf');
+    }
+    </script>
   <header id="header" class="header fixed-top d-flex align-items-center">
 
     <div class="d-flex align-items-center justify-content-between">
@@ -174,9 +188,26 @@
                     <li><a class="dropdown-item" href="#">This Year</a></li>
                   </ul>
                 </div>
-
-                <div class="card-body">
-                  <h5 class="card-title">Statistics <span>| Today</span></h5>
+                <div class="container">
+                  <button onclick="generatePDF()" class = "btn btn-info"><i class = "fa fa-print"></i>Generate PDF</button>
+                  <hr>
+                  <script>
+                      function generatePDF() {
+                          var doc = new jsPDF();
+                          // HTML content to be converted
+                          var htmlContent = document.getElementById('pdf-content').innerHTML;
+                      
+                          doc.text('Daily Statistics Report', 10, 10); // Title
+                          doc.fromHTML(htmlContent, 10, 20, {
+                              width: 190
+                          });
+                      
+                          // Save the PDF
+                          doc.save('DailyStaticsReport.pdf');
+                      }
+                      </script>
+                <div class="card-body" id = "pdf-content">
+                  <h5 class="card-title">Statistics <span>| Today {{ date('d-m-y (D)', strtotime($currentDate)) }}</span></h5>
                   <table class="table table-striped table-bordered">
         <thead class="thead-dark">
             <tr>
