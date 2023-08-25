@@ -87,7 +87,7 @@
     <ul class="sidebar-nav" id="sidebar-nav">
 
       <li class="nav-item">
-        <a class="nav-link " href="index.html">
+        <a class="nav-link " href="/home">
           <i class="bi bi-grid"></i>
           <span>Choose Option</span>
         </a>
@@ -119,9 +119,7 @@
       </li>
     </ul>
   </aside>
-
   <main id="main" class="main">
-
     <div class="pagetitle">
       <h1>Dashboard</h1>
       <nav>
@@ -167,7 +165,6 @@
                     </div>
                   </div>
                 </div>
-
               </div>
             </div><!-- End Sales Card -->
             <!-- Revenue Card -->
@@ -290,7 +287,7 @@
       &copy; Copyright <strong><span>B-E Digital</span></strong>. All Rights Reserved
     </div>
     <div class="credits">
-      Developed By <a href="https://bootstrapmade.com/">Itai Neil Chiriseri</a>
+      Developed By <a href="https//www.b-e.digital.com">B-E Digital</a>
     </div>
   </footer><!-- End Footer -->
   <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>

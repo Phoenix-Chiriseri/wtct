@@ -45,7 +45,7 @@ class MentalHealthCareAssistantsController extends Controller
      */
     public function create()
     {
-        //
+        
     }
 
     public function deleteRecords(){
@@ -62,9 +62,7 @@ class MentalHealthCareAssistantsController extends Controller
             'long' => 'Long Day',
         ];
         return view('mentalHealthCare')->with("shiftOptions",$shiftOptions)->with("supportWorkers");
-    }
-
-    
+    } 
     /**
      * Store a newly created resource in storage.
      */
@@ -93,7 +91,6 @@ class MentalHealthCareAssistantsController extends Controller
     
         $from_date = $request->input('from_date');
         $to_date = $request->input('to_date');
-    
         $results = DB::table('mental_health_care_assistants')
             ->whereBetween('date', [$from_date, $to_date])
             ->delete();

@@ -24,13 +24,7 @@ class HomeController extends Controller
     {
         $this->middleware('auth');
     }
-
-
-    /**
-     * Show the application dashboard.
-     *
-     * @return \Illuminate\Contracts\Support\Renderable
-     */
+       
     public function index()
     {
 
@@ -40,6 +34,7 @@ class HomeController extends Controller
         $mentalHealthCareAssistants = MentalHealthCareAssistants::whereDate('date', $currentDate)->sum('num_people');
         $midwives = Midwives::whereDate('date', $currentDate)->sum('num_people');
         $rgns = RGN::whereDate('date', $currentDate)->sum('num_people');
+        //get the authenticated user
         $user = Auth::user();
         $name = $user->name;
         return view('home')->with("name",$name)->with("supportWorkers",$supportWorkers)
