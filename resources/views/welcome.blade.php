@@ -26,15 +26,10 @@
     <link href="{{ asset('/css/quill/quill.bubble.css') }}" rel="stylesheet">
     <link href="{{ asset('/css/remixicon/.css') }}" rel="stylesheet">
     <link href="{{ asset('/css/style.css') }}" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
-  <!-- =======================================================
-  * Template Name: NiceAdmin
-  * Updated: Jul 27 2023 with Bootstrap v5.3.1
-  * Template URL: https://bootstrapmade.com/nice-admin-bootstrap-admin-html-template/
-  * Author: BootstrapMade.com
-  * License: https://bootstrapmade.com/license/
-  ======================================================== -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/wow/1.1.2/wow.min.js"></script>
 </head>
 <style>
 #temperature{
@@ -43,19 +38,19 @@
 }
 .temperature{
 
-  color:red;
+  color:blue;
 }
 </style>
 <body>
-  <script>
-
+<script>
+    new WOW().init();
+</script>
+<script>
 $(document).ready(function(){
     const apiKey = "a2755480e2c07f45b35fe4669c73ec53";
     const apiUrl = `http://api.openweathermap.org/data/2.5/weather?lat=51.5074&lon=-0.1278&units=metric&appid=${apiKey}`;
-
     // Show the spinner while the data is being fetched
     $(".spinner").show();
-
     // Make an AJAX call to the server and get the weather from the OpenWeatherMap API for a UK location in metric units
     $.ajax({
         url: apiUrl,
@@ -64,7 +59,6 @@ $(document).ready(function(){
         const ukTemperature = response.main.temp;
         // Hide the spinner after data is fetched
         $(".spinner").hide();
-
         //Display the data in the weather card using ES6 template literals
         const weatherCard = `
             <div class="weather-card">
@@ -82,16 +76,13 @@ $(document).ready(function(){
     <div class="d-flex align-items-center justify-content-between">
       <a href="index.html" class="logo d-flex align-items-center">
         <img src="assets/img/logo.png" alt="">
-        <span class="d-none d-lg-block">We Choose To Care</span>
+        <span class="d-none d-lg-block wow fadeIn">We Choose To Care</span>
       </a>
       <a href = "https://www.facebook.com/wctcare" target="_blank"><i class = "fa fa-facebook"></i></a>
       <i class="bi bi-list toggle-sidebar-btn"></i>
     </div><!-- End Logo -->
     <nav class="header-nav ms-auto">
       <ul class="d-flex align-items-center">
-
-    
-
         <li class="nav-item dropdown">
         <li class="nav-item dropdown pe-3">
 
@@ -166,7 +157,7 @@ $(document).ready(function(){
                 <div class="spinner">
                   <i class="fa fa-spinner fa-spin"></i>
               </div>
-                <div id = "weatherContainer" class = "row"></div>
+                <div id = "weatherContainer" class = "wow fadeIn" data-wow-duration="2s"></div>
               </div>
             </div>
           </div>
@@ -188,24 +179,24 @@ $(document).ready(function(){
 
                 <div class="tab-pane fade show active profile-overview" id="profile-overview">
                   <h5 class="card-title">About</h5>
-                  <p class="small fst-italic">  
+                  <p class="small fst-italic animate__animated animate__slideInUp" data-wow-duration="2s">  
                   WECHOOSETOCARE Ltd is a recruitment agency that offers highly personalised recruitment solutions to the healthcare industry. 
                   Our recruitment solutions can either be on a permanent or temporary basis industry. Our recruitment solutions can either be on a permanent or temporary basis</p>
 
                   <h5 class="card-title">Details</h5>
                   <div class="row">
-                    <div class="col-lg-3 col-md-4 label">Address</div>
-                    <div class="col-lg-9 col-md-8">5 Codrington Gardens, Gravesend, England, DA12 508</div>
+                    <div class="col-lg-3 col-md-4 label animate__animated animate__slideInLeft">Address</div>
+                    <div class="col-lg-9 col-md-8 animate__animated animate__slideInRight">5 Codrington Gardens, Gravesend, England, DA12 508</div>
                   </div>
 
                   <div class="row">
-                    <div class="col-lg-3 col-md-4 label">Phone</div>
-                    <div class="col-lg-9 col-md-8">0754 314 8624</div>
+                    <div class="col-lg-3 col-md-4 label animate__animated animate__slideInLeft">Phone</div>
+                    <div class="col-lg-9 col-md-8 animate__animated animate__slideInRight">0754 314 8624</div>
                   </div>
 
                   <div class="row">
-                    <div class="col-lg-3 col-md-4 label">Email</div>
-                    <div class="col-lg-9 col-md-8">info@wctc.care</div>
+                    <div class="col-lg-3 col-md-4 label animate__animated animate__slideInLeft">Email</div>
+                    <div class="col-lg-9 col-md-8 animate__animated animate__slideInRight">info@wctc.care</div>
                   </div>
 
                   
@@ -237,7 +228,7 @@ $(document).ready(function(){
                     <div class="row mb-3">
                       <label for="about" class="col-md-4 col-lg-3 col-form-label">About</label>
                       <div class="col-md-8 col-lg-9">
-                        <textarea name="about" class="form-control" id="about" style="height: 100px">Sunt est soluta temporibus accusantium neque nam maiores cumque temporibus. Tempora libero non est unde veniam est qui dolor. Ut sunt iure rerum quae quisquam autem eveniet perspiciatis odit. Fuga sequi sed ea saepe at unde.</textarea>
+                        <textarea name="about" class="form-control" id="about" style="height: 100px"></textarea>
                       </div>
                     </div>
 
@@ -352,14 +343,11 @@ $(document).ready(function(){
                         </div>
                       </div>
                     </div>
-
                     <div class="text-center">
                       <button type="submit" class="btn btn-primary">Save Changes</button>
                     </div>
                   </form><!-- End settings Form -->
-
                 </div>
-
                 <div class="tab-pane fade pt-3" id="profile-change-password">
                   <!-- Change Password Form -->
                   <form>
