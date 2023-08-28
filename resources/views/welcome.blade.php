@@ -143,14 +143,13 @@ $(document).ready(function(){
       </ol>
     </nav>
   </div><!-- End Page Title -->
-
   <main id="main" class="main">
     <section class="section profile">
       <div class="row">
         <div class="col-xl-4">
           <div class="card">
             <div class="card-body profile-card pt-4 d-flex flex-column align-items-center">
-              <img src="{{ asset('img/logo.png') }}" alt="Profile" class="rounded-circle">
+              <img src="{{ asset('img/logo.png') }}" alt="Profile" class="img-thumbnail animate__animated animate__slideInUp">
               <h2>We Choose To Care</h2>
               <hr>
               <div class="row">
@@ -185,8 +184,8 @@ $(document).ready(function(){
 
                   <h5 class="card-title">Details</h5>
                   <div class="row">
-                    <div class="col-lg-3 col-md-4 label animate__animated animate__slideInLeft">Address</div>
-                    <div class="col-lg-9 col-md-8 animate__animated animate__slideInRight">5 Codrington Gardens, Gravesend, England, DA12 508</div>
+                    <div class="col-lg-3 col-md-4 label animate__animated animate__slideInLeft" data-wow-duration="3s">Address</div>
+                    <div class="col-lg-9 col-md-8 animate__animated animate__slideInRight" data-wow-duration="3s">5 Codrington Gardens, Gravesend, England, DA12 508</div>
                   </div>
 
                   <div class="row">
@@ -210,7 +209,7 @@ $(document).ready(function(){
                     <div class="row mb-3">
                       <label for="profileImage" class="col-md-4 col-lg-3 col-form-label">Profile Image</label>
                       <div class="col-md-8 col-lg-9">
-                        <img src="{{ asset('img/messages-3.jpg') }}" alt="Profile">
+                        <img src="{{ asset('img/messages-3.jpg') }}" alt="Profile" class = "img-thumbnail">
                         <div class="pt-2">
                           <a href="#" class="btn btn-primary btn-sm" title="Upload new profile image"><i class="bi bi-upload"></i></a>
                           <a href="#" class="btn btn-danger btn-sm" title="Remove my profile image"><i class="bi bi-trash"></i></a>
