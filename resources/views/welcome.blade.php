@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 
@@ -28,6 +27,7 @@
     <link href="{{ asset('/css/remixicon/.css') }}" rel="stylesheet">
     <link href="{{ asset('/css/style.css') }}" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
   <!-- =======================================================
   * Template Name: NiceAdmin
   * Updated: Jul 27 2023 with Bootstrap v5.3.1
@@ -38,6 +38,30 @@
 </head>
 
 <body>
+  <script>
+
+    $(document).ready(function(){
+     // Make an AJAX call to the server and get the weather from the OpenWeatherMap API
+     $.ajax({
+     url: "http://api.openweathermap.org/data/2.5/weather?lat=51.5074&lon=-0.1278&units=metric&appid=a2755480e2c07f45b35fe4669c73ec53",
+     type: "GET"
+   }).done(function(response){
+     const ukTemperature  = response.main.temp;
+     const country = response.sys.country;
+     console.log(country+ukTemperature);
+
+     //Display the data in the weather card using ES6 template literals
+     const weatherCard = `
+     <div class="weather-card">
+         <div class="country"><i class = "fa fa-flag"></i>Country ${country}</div>
+         <div class="temperature"><i class = "fa fa-temperature"></i>Current Temperature ${ukTemperature}°C</div>
+     </div>
+    `;
+    // Append the card to a container in your HTML
+    $("#weatherContainer").append(weatherCard);
+    });
+  });
+ </script>
   <!-- ======= Header ======= -->
   <header id="header" class="header fixed-top d-flex align-items-center">
 
@@ -162,6 +186,10 @@
                   <div class="row">
                     <div class="col-lg-3 col-md-4 label">Email</div>
                     <div class="col-lg-9 col-md-8">info@wctc.care</div>
+                  </div>
+
+                  <div class="row">
+                    <div id = "weatherContainer" class = "row"></div>
                   </div>
 
                 </div>
