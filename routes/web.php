@@ -8,10 +8,11 @@ use App\Http\Controllers\RGNController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\PositionController;
 use App\Http\Controllers\MidwivesController;
-
+use Carbon\Carbon;
 
 Route::get('/',function(){
-    return view("welcome");
+    $currentDate = Carbon::now('Europe/London')->format('d-m-Y H:i:s');
+    return view("welcome")->with('currentDate',$currentDate);
 });
 Route::get('/viewClientSupportWorkers', [SupportWorkersController::class, 'index'])->name("viewClientSupportWorkers");
 Route::get('/viewClientHealthCareWorkers', [HealthCareAssistantsController::class, 'index'])->name("viewClientHealthCareWorkers");

@@ -84,7 +84,7 @@ $(document).ready(function(){
         <img src="assets/img/logo.png" alt="">
         <span class="d-none d-lg-block wow fadeIn">We Choose To Care</span>
       </a>
-      <a href = "https://www.facebook.com/wctcare" target="_blank"><i class = "fa fa-facebook"></i></a>
+      
       <i class="bi bi-list toggle-sidebar-btn"></i>
     </div><!-- End Logo -->
     <nav class="header-nav ms-auto">
@@ -158,6 +158,7 @@ $(document).ready(function(){
               <img src="{{ asset('img/logo.png') }}" alt="Profile" class="img-thumbnail animate__animated animate__slideInUp">
               <h2>We Choose To Care</h2>
               <hr>
+              <h6>Date (Uk-Time) {{$currentDate}}</h6>
               <div class="row">
                 <div class="spinner">
                   <i class="fa fa-spinner fa-spin"></i>
@@ -166,9 +167,7 @@ $(document).ready(function(){
               </div>
             </div>
           </div>
-
         </div>
-
         <div class="col-xl-8">
 
           <div class="card">
