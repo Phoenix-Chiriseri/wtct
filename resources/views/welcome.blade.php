@@ -36,31 +36,45 @@
   * License: https://bootstrapmade.com/license/
   ======================================================== -->
 </head>
+<style>
+#temperature{
 
+  color:red;
+}
+.temperature{
+
+  color:red;
+}
+</style>
 <body>
   <script>
 
-    $(document).ready(function(){
-     // Make an AJAX call to the server and get the weather from the OpenWeatherMap API
-     $.ajax({
-     url: "http://api.openweathermap.org/data/2.5/weather?lat=51.5074&lon=-0.1278&units=metric&appid=a2755480e2c07f45b35fe4669c73ec53",
-     type: "GET"
-   }).done(function(response){
-     const ukTemperature  = response.main.temp;
-     const country = response.sys.country;
-     console.log(country+ukTemperature);
+$(document).ready(function(){
+    const apiKey = "a2755480e2c07f45b35fe4669c73ec53";
+    const apiUrl = `http://api.openweathermap.org/data/2.5/weather?lat=51.5074&lon=-0.1278&units=metric&appid=${apiKey}`;
 
-     //Display the data in the weather card using ES6 template literals
-     const weatherCard = `
-     <div class="weather-card">
-         <div class="country"><i class = "fa fa-flag"></i>Country ${country}</div>
-         <div class="temperature"><i class = "fa fa-temperature"></i>Current Temperature ${ukTemperature}°C</div>
-     </div>
-    `;
-    // Append the card to a container in your HTML
-    $("#weatherContainer").append(weatherCard);
+    // Show the spinner while the data is being fetched
+    $(".spinner").show();
+
+    // Make an AJAX call to the server and get the weather from the OpenWeatherMap API for a UK location in metric units
+    $.ajax({
+        url: apiUrl,
+        type: "GET"
+    }).done(function(response){
+        const ukTemperature = response.main.temp;
+        // Hide the spinner after data is fetched
+        $(".spinner").hide();
+
+        //Display the data in the weather card using ES6 template literals
+        const weatherCard = `
+            <div class="weather-card">
+                <div class="temperature"><i class="fa fa-sun"></i>Current Temperature ${ukTemperature}°C</div>
+            </div>
+        `;
+        // Append the card to the weather container in your HTML
+        $("#weatherContainer").append(weatherCard);
     });
-  });
+});
  </script>
   <!-- ======= Header ======= -->
   <header id="header" class="header fixed-top d-flex align-items-center">
@@ -147,7 +161,13 @@
             <div class="card-body profile-card pt-4 d-flex flex-column align-items-center">
               <img src="{{ asset('img/logo.png') }}" alt="Profile" class="rounded-circle">
               <h2>We Choose To Care</h2>
-            
+              <hr>
+              <div class="row">
+                <div class="spinner">
+                  <i class="fa fa-spinner fa-spin"></i>
+              </div>
+                <div id = "weatherContainer" class = "row"></div>
+              </div>
             </div>
           </div>
 
@@ -188,9 +208,7 @@
                     <div class="col-lg-9 col-md-8">info@wctc.care</div>
                   </div>
 
-                  <div class="row">
-                    <div id = "weatherContainer" class = "row"></div>
-                  </div>
+                  
 
                 </div>
 
