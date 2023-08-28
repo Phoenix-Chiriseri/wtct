@@ -18,10 +18,10 @@ Route::get('/viewClientHealthCareWorkers', [HealthCareAssistantsController::clas
 Route::get('/viewClientRegisteredNurses', [RGNController::class, 'index'])->name("viewClientRegisteredNurses");
 Route::get('/viewClientMentalHealthNurses', [MentalHealthCareAssistantsController::class, 'getWorkers'])->name("viewClientMentalHealthNurses");
 Route::get('/showClientMentalHealthWorkers', [MentalHealthCareAssistantsController::class, 'index'])->name("showClientMentalHealthWorkers");
-Route::get('/getSupportWorkers', [SupportWorkersController::class, 'getWorkers']);
-Route::get('/getHealthCareWorkers', [HealthCareAssistantsController::class, 'getWorkers']);
-Route::get('/getRGN', [RGNController::class, 'getWorkers']);
-Route::get('/getMentalHealthCareWorkers', [MentalHealthCareAssistantsController::class, 'getWorkers']);
+Route::get('/getSupportWorkers', [SupportWorkersController::class, 'getWorkers'])->middleware('auth');
+Route::get('/getHealthCareWorkers', [HealthCareAssistantsController::class, 'getWorkers'])->middleware('auth');;
+Route::get('/getRGN', [RGNController::class, 'getWorkers'])->middleware('auth');
+Route::get('/getMentalHealthCareWorkers', [MentalHealthCareAssistantsController::class, 'getWorkers'])->middleware('auth');
 Route::post('/createSupportWorker', [SupportWorkersController::class, 'store'])->name("createSupportWorker")->middleware('admin');
 Route::post('/createHealthCareAssistant', [HealthCareAssistantsController::class, 'store'])->name("createHealthCareAssistant");
 Route::post('/createRGN', [RGNController::class, 'store'])->name("createRGN");
@@ -43,7 +43,7 @@ Route::post('/deleteFromSupportWorkers', [App\Http\Controllers\SupportWorkersCon
 Route::post('/deleteFromSupportWorkers', [App\Http\Controllers\SupportWorkersController::class, 'deleteRecordsAction'])->name('deleteRecords');
 Route::get('/deleteRegisteredNurses', [App\Http\Controllers\RGNController::class, 'deleteRecords'])->name('deleteRegisteredNurses');
 Route::post('/deleteRegisteredNurses', [App\Http\Controllers\RGNController::class, 'deleteRecordsAction'])->name('deleteRegisteredNurses');
-Route::get('/getMidwives', [App\Http\Controllers\MidwivesController::class, 'index'])->name('getMidwives');
+Route::get('/getMidwives', [App\Http\Controllers\MidwivesController::class, 'index'])->name('getMidwives')->middleware('auth');
 Route::post('/createMidwives', [App\Http\Controllers\MidwivesController::class, 'store'])->name('createMidwives');
 Route::get('viewClientMidwives',[App\Http\Controllers\MidwivesController::class,'create'])->name('viewClientMidwives');
 Route::get('/deleteMidwives',[App\Http\Controllers\MidwivesController::class,'deleteRecords'])->name('deleteMidwives');
