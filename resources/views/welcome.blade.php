@@ -46,10 +46,9 @@
         <img src="assets/img/logo.png" alt="">
         <span class="d-none d-lg-block">We Choose To Care</span>
       </a>
+      <a href = "https://www.facebook.com/wctcare" target="_blank"><i class = "fa fa-facebook"></i></a>
       <i class="bi bi-list toggle-sidebar-btn"></i>
     </div><!-- End Logo -->
-
-  
     <nav class="header-nav ms-auto">
       <ul class="d-flex align-items-center">
 
