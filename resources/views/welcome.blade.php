@@ -359,13 +359,14 @@
   </main><!-- End #main -->
 
   <!-- ======= Footer ======= -->
-  <footer id="footer" class="footer">
+  <footer id="footer" class="footer" style="margin-top: 200px;">
     <div class="credits">
       <!-- All the links in the footer should remain intact. -->
       <!-- You can delete the links only if you purchased the pro version. -->
       <!-- Licensing information: https://bootstrapmade.com/license/ -->
       <!-- Purchase the pro version with working PHP/AJAX contact form: https://bootstrapmade.com/nice-admin-bootstrap-admin-html-template/ -->
-      Developed by <a href="https://bootstrapmade.com/">Itai Neil Chiriseri</a>
+      <!--Developed by <a href="https://bootstrapmade.com/">Itai Neil Chiriseri</a>!-->
+      <a href = "https://www.b-e.digital/" target="_blank">Powered by Brand Evangelicals</a>
     </div>
   </footer><!-- End Footer -->
 
