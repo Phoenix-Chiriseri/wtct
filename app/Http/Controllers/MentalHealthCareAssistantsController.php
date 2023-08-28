@@ -98,35 +98,7 @@ class MentalHealthCareAssistantsController extends Controller
         return redirect()->back()->with('success', 'Mental Health care workers deleted successfully.');
     }
 
-    /**
-     * Display the specified resource.
-     */
-    public function show(MentalHealthCareAssistants $mentalHealthCareAssistants)
-    {
-        //
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     */
-    public function edit(MentalHealthCareAssistants $mentalHealthCareAssistants)
-    {
-        //
-    }
-
-    /**
-     * Update the specified resource in storage.
-     */
-    public function update(Request $request, MentalHealthCareAssistants $mentalHealthCareAssistants)
-    {
-        //
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     */
-    public function destroy(MentalHealthCareAssistants $mentalHealthCareAssistants)
-    {
-        //
-    }
+  
+  
+   
 }

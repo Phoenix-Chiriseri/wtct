@@ -75,18 +75,14 @@
     <script>
         function generatePDF() {
             var doc = new jsPDF();
-            // HTML content to be converted
             var htmlContent = document.getElementById('pdf-content').innerHTML;
-        
-            doc.text('Support Workers Report', 10, 10); // Title
+            doc.text('Midwives Report', 10, 10);
             doc.fromHTML(htmlContent, 10, 20, {
                 width: 190
             });
-        
-            // Save the PDF
-            doc.save('SupportWorkersReport.pdf');
+            doc.save('SupportWorkers.pdf');
         }
-        </script>
+    </script>
 <div class="container">
     <div class="row" id="pdf-content">
         @if(count($shiftCounts) > 0)
@@ -95,7 +91,7 @@
                     <div class="info-box">
                         <div class="ribbon-wrapper">
                             <div class="ribbon bg-primary">
-                                WCTC
+                                We Choose To Care
                             </div>
                         </div>
                         <span class="info-box-icon bg-primary"><i class="fa fa-users"></i></span>

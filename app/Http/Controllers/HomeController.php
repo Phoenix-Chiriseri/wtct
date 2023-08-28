@@ -27,14 +27,13 @@ class HomeController extends Controller
        
     public function index()
     {
-
         $currentDate = now()->toDateString();
         $supportWorkers = SupportWorkers::whereDate('date', $currentDate)->sum('num_people');
         $healthCareAssistants= HealthCareAssistants::whereDate('date', $currentDate)->sum('num_people');
         $mentalHealthCareAssistants = MentalHealthCareAssistants::whereDate('date', $currentDate)->sum('num_people');
         $midwives = Midwives::whereDate('date', $currentDate)->sum('num_people');
         $rgns = RGN::whereDate('date', $currentDate)->sum('num_people');
-        //get the authenticated user
+        //get the authenticated user and the username
         $user = Auth::user();
         $name = $user->name;
         return view('home')->with("name",$name)->with("supportWorkers",$supportWorkers)
@@ -47,4 +46,5 @@ class HomeController extends Controller
        return view('deleteRecords');
 
     }
+
 }

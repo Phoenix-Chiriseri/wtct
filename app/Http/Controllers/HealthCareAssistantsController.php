@@ -15,7 +15,7 @@ class HealthCareAssistantsController extends Controller
     /**
      * Display a listing of the resource.
      */
-    public function index()
+    public function index(  )
     {
         $startDate = Carbon::now()->toDateString();
         $endDate = Carbon::now()->addDays(6)->toDateString();
@@ -118,16 +118,5 @@ class HealthCareAssistantsController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, HealthCareAssistants $healthCareAssistants)
-    {
-        //
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     */
-    public function destroy(HealthCareAssistants $healthCareAssistants)
-    {
-        //
-    }
+   
 }

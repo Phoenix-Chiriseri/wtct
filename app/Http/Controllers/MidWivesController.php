@@ -79,10 +79,7 @@ class MidWivesController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(MidWives $midWives)
-    {
-        //
-    }
+  
 
     public function deleteRecordsAction(Request $request){
 
@@ -109,24 +106,5 @@ class MidWivesController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(MidWives $midWives)
-    {
-        //
-    }
 
-    /**
-     * Update the specified resource in storage.
-     */
-    public function update(Request $request, MidWives $midWives)
-    {
-        //
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     */
-    public function destroy(MidWives $midWives)
-    {
-        //
-    }
 }

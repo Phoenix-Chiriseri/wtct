@@ -22,7 +22,7 @@ Route::get('/getSupportWorkers', [SupportWorkersController::class, 'getWorkers']
 Route::get('/getHealthCareWorkers', [HealthCareAssistantsController::class, 'getWorkers']);
 Route::get('/getRGN', [RGNController::class, 'getWorkers']);
 Route::get('/getMentalHealthCareWorkers', [MentalHealthCareAssistantsController::class, 'getWorkers']);
-Route::post('/createSupportWorker', [SupportWorkersController::class, 'store'])->name("createSupportWorker");
+Route::post('/createSupportWorker', [SupportWorkersController::class, 'store'])->name("createSupportWorker")->middleware('admin');
 Route::post('/createHealthCareAssistant', [HealthCareAssistantsController::class, 'store'])->name("createHealthCareAssistant");
 Route::post('/createRGN', [RGNController::class, 'store'])->name("createRGN");
 Route::post('/createMentalHealthWorker', [MentalHealthCareAssistantsController::class, 'store'])->name("createMentalHealthWorker");

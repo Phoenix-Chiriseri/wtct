@@ -76,6 +76,7 @@ class SupportWorkersController extends Controller
 
     public function getWorkers(){
 
+    
         $shiftOptions = [
             'morning' => 'Morning Shift',
             'late' => 'Late Shift',
@@ -141,7 +142,6 @@ class SupportWorkersController extends Controller
             ->groupBy('date')
             ->setBindings([$shift, $numOfPeople], 'select')
             ->get();
-            dd($shiftCounts);
             return view('viewUpdatedResults', ['shiftCounts' => $shiftCounts])->with("totalJobs",$totalPeopleForCurrentDay)->with("total",$totalPeopleForCurrentDay); 
     }
     /**
@@ -152,27 +152,5 @@ class SupportWorkersController extends Controller
         //
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     */
-    public function edit(SupportWorkers $supportWorkers)
-    {
-        //
-    }
-
-    /**
-     * Update the specified resource in storage.
-     */
-    public function update(Request $request, SupportWorkers $supportWorkers)
-    {
-        //
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     */
-    public function destroy(SupportWorkers $supportWorkers)
-    {
-        //
-    }
+  
 }

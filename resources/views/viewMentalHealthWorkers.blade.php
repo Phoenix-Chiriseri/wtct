@@ -94,7 +94,7 @@
             <div class="info-box">
                 <div class="ribbon-wrapper">
                     <div class="ribbon bg-primary">
-                        WCTC
+                        We Choose To Care
                     </div>
                 </div>
                 <span class="info-box-icon bg-primary"><i class="fa fa-users"></i></span>
