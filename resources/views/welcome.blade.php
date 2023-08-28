@@ -18,6 +18,7 @@
   <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Nunito:300,300i,400,400i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
 <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.bunny.net">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/material-icons@3.0.1/iconfont/material-icons.min.css">
     <link href="{{ asset('/css/style.css') }}" rel="stylesheet">
     <link href="{{ asset('/css/bootstrap.min.css') }}" rel="stylesheet">
     <link href="{{ asset('/css/bootstrap-icons/bootstrap-icons.css') }}" rel="stylesheet">
@@ -30,6 +31,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/wow/1.1.2/wow.min.js"></script>
+   
 </head>
 <style>
 #temperature{
@@ -38,7 +40,11 @@
 }
 .temperature{
 
-  color:blue;
+  color:navy;
+}
+#sunIcon{
+
+ color:maroon;
 }
 </style>
 <body>
@@ -62,7 +68,7 @@ $(document).ready(function(){
         //Display the data in the weather card using ES6 template literals
         const weatherCard = `
             <div class="weather-card">
-                <div class="temperature"><i class="fa fa-sun"></i>Current Temperature ${ukTemperature}°C</div>
+                <div class="temperature"><i class="bi bi-thermometer-sun" id = "sunIcon"></i></span> Temperature ${ukTemperature}°C</div>
             </div>
         `;
         // Append the card to the weather container in your HTML
