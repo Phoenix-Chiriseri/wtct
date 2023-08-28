@@ -2,6 +2,7 @@
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/admin-lte@3.2/dist/css/adminlte.min.css">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.4.1/jspdf.debug.js"></script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
 <style>
     .ribbon-wrapper {
         position: absolute;
@@ -60,10 +61,10 @@
     <div class="row justify-content-center">
         <div class="col-md-12">
             <div class="jumbotron">
-                <h1 class="display-4">Mental Health Care Assistants</h1>
+                <h1 class="display-4 animate__animated animate__fadeInLeft">Mental Health Care Assistants</h1>
                 <hr class="my-4">
-                <p>Total People For Today {{$today}}</p>
-                <p>Total People For The Week {{$total}}</p>
+                <p class = "animate__animated animate__SlideInUp">Total People For Today {{$today}}</p>
+                <p class = "animate__animated animate__fadeInRight">Total People For The Week {{$total}}</p>
                 <a href="/" class="btn btn-secondary"><i class = "fa fa-users"></i>Home</a>
             </div>
         </div>
@@ -90,7 +91,7 @@
 <div class="container">
     <div class="row" id = "pdf-content">
         @foreach ($shiftCounts as $shiftCount)
-        <div class="col-md-4">
+        <div class="col-md-4 animate__animated animate__zoomIn">
             <div class="info-box">
                 <div class="ribbon-wrapper">
                     <div class="ribbon bg-primary">
