@@ -158,7 +158,7 @@ $(document).ready(function(){
               <img src="{{ asset('img/logo.png') }}" alt="Profile" class="img-thumbnail animate__animated animate__slideInUp">
               <h2>We Choose To Care</h2>
               <hr>
-              <h6>Date (Uk-Time) {{$currentDate}}</h6>
+              <h6><i class="bi bi-calendar-plus-fill"></i> Date {{$currentDate}}</h6>
               <div class="row">
                 <div class="spinner">
                   <i class="fa fa-spinner fa-spin"></i>
