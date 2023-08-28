@@ -10,7 +10,7 @@
           <div class="card">
             <div class="card-body">
               <h5 class="card-title">Mental Health Care Workers</h5>
-              <a href = "deleteFromHealthWorkers" class = "btn btn-danger">Delete Records</a>
+              <!--<a href = "deleteFromHealthWorkers" class = "btn btn-danger">Delete Records</a>!-->
             </div>
           </div>
 
