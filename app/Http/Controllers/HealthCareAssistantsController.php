@@ -5,7 +5,6 @@ namespace App\Http\Controllers;
 use App\Models\HealthCareAssistants;
 use Illuminate\Http\Request;
 use Carbon\Carbon;
-use Charts;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Validator;
 
@@ -35,7 +34,7 @@ class HealthCareAssistantsController extends Controller
        ->whereDate('date', '>=', $startDate)
        ->whereDate('date', '<=', $endDate)
        ->groupBy('date')
-       ->get();  
+       ->get();
         return view('viewHealthCare', ['shiftCounts' => $shiftCounts])->with("total",$totalPeopleWithinWeek)->with("today",$totalPeopleForCurrentDay);
     }
     /**
@@ -100,23 +99,23 @@ class HealthCareAssistantsController extends Controller
             'from_date' => 'required|date',
             'to_date' => 'required|date|after_or_equal:from_date',
         ]);
-    
+
         if ($validator->fails()) {
             return redirect()->back()->withErrors($validator)->withInput();
         }
-    
+
         $from_date = $request->input('from_date');
         $to_date = $request->input('to_date');
-    
+
         $results = DB::table('health_care_assistants')
             ->whereBetween('date', [$from_date, $to_date])
             ->delete();
-    
+
         return redirect()->back()->with('success', 'Health care workers deleted successfully.');
     }
 
     /**
      * Update the specified resource in storage.
      */
-   
+
 }
