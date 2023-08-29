@@ -33,8 +33,8 @@ Route::get('removeEntry', [SupportWorkersController::class, 'removeEntry'])->nam
 Route::post('removeEntry', [SupportWorkersController::class, 'actionRemoveEntry'])->name("removeEntry");
 Auth::routes();
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
-Route::get('/getNewPosition', [App\Http\Controllers\PositionController::class, 'index'])->name('getNewPosition');
-Route::post('/postNewPosition', [App\Http\Controllers\PositionController::class, 'store'])->name('postNewPosition');
+//Route::get('/getNewPosition', [App\Http\Controllers\PositionController::class, 'index'])->name('getNewPosition');
+//Route::post('/postNewPosition', [App\Http\Controllers\PositionController::class, 'store'])->name('postNewPosition');
 Route::get('/deleteFromSupportWorkers', [App\Http\Controllers\SupportWorkersController::class, 'deleteRecords'])->name('deleteRecords')->middleware('auth');;
 Route::get('/deleteFromHealthWorkers', [App\Http\Controllers\HealthCareAssistantsController::class, 'deleteRecords'])->name('deleteFromHealthWorkers')->middleware('auth');;
 Route::post('/deleteFromHealthWorkers', [App\Http\Controllers\HealthCareAssistantsController::class, 'deleteRecordsAction'])->name('deleteRecords')->middleware('auth');;
