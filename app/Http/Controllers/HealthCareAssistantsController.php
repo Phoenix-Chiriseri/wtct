@@ -45,6 +45,10 @@ class HealthCareAssistantsController extends Controller
         //
     }
 
+    protected function normalizeGuessedAbilityName($ability)
+    {
+    }
+
     public function getWorkers(){
 
         $shiftOptions = [

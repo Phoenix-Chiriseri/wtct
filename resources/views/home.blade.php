@@ -38,7 +38,7 @@
     function generatePDF() {
         var doc = new jsPDF();
         // HTML content to be converted
-        var htmlContent = document.getElementById('pdf-content').innerHTML; 
+        var htmlContent = document.getElementById('pdf-content').innerHTML;
         doc.text('Daily Statistics Report', 10, 10); // Title
         doc.fromHTML(htmlContent, 10, 20, {
             width: 190
@@ -58,7 +58,7 @@
     </div><!-- End Logo -->
 
     <div class="search-bar">
-     
+
     </div><!-- End Search Bar -->
 
     <nav class="header-nav ms-auto">
@@ -79,7 +79,7 @@
   </header><!-- End Header -->
 
   <aside id="sidebar" class="sidebar">
-    
+
     <ul class="sidebar-nav" id="sidebar-nav">
 
       <li class="nav-item">
@@ -157,7 +157,7 @@
 
                   <div class="d-flex align-items-center">
                     <div class="card-icon rounded-circle d-flex align-items-center justify-content-center">
-                     <img src = "{{ asset('/img/logo.png') }}" class = "img-fluid"> 
+                     <img src = "{{ asset('/img/logo.png') }}" class = "img-fluid">
                     </div>
                   </div>
                 </div>
@@ -189,12 +189,12 @@
                           var doc = new jsPDF();
                           // HTML content to be converted
                           var htmlContent = document.getElementById('pdf-content').innerHTML;
-                      
+
                           doc.text('Daily Statistics Report', 10, 10); // Title
                           doc.fromHTML(htmlContent, 10, 20, {
                               width: 190
                           });
-                      
+
                           // Save the PDF
                           doc.save('DailyStaticsReport.pdf');
                       }
@@ -231,13 +231,11 @@
           </tr>
         </tbody>
     </table>
-
-                  
 @section('content')
 <div class="container">
     <h2>Results for Today</h2>
 
-    
+
 </div>
 @endsection
 
@@ -257,7 +255,7 @@
                   <h6>Filter</h6>
                 </li>
 
-              
+
               </ul>
             </div>
         </div><!-- End Right side columns -->
