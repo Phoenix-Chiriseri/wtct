@@ -31,7 +31,8 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/wow/1.1.2/wow.min.js"></script>
-   
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
 </head>
 <style>
 #temperature{
@@ -84,7 +85,7 @@ $(document).ready(function(){
         <img src="assets/img/logo.png" alt="">
         <span class="d-none d-lg-block wow fadeIn">We Choose To Care</span>
       </a>
-      
+
       <i class="bi bi-list toggle-sidebar-btn"></i>
     </div><!-- End Logo -->
     <nav class="header-nav ms-auto">
@@ -177,15 +178,51 @@ $(document).ready(function(){
 
                 <li class="nav-item">
                   <button class="nav-link active" data-bs-toggle="tab" data-bs-target="#profile-overview">Overview</button>
-                </li>   
+                </li>
               </ul>
               <div class="tab-content pt-2">
+                  <canvas id="healthcareChart"></canvas>
+                  <script>
+                      // Processed data from your PHP code
+                      var supportWorkers = <?php echo $supportWorkers; ?>;
+                      var healthCareAssistants = <?php echo $healthCareAssistants; ?>;
+                      var mentalHealthCareAssistants = <?php echo $mentalHealthCareAssistants; ?>;
+                      var midwives = <?php echo $midwives; ?>;
+                      var rgns = <?php echo $rgns; ?>;
 
-                <div class="tab-pane fade show active profile-overview" id="profile-overview">
+                      // Chart.js code for a pie chart
+                      var ctx = document.getElementById('healthcareChart').getContext('2d');
+                      var healthcareChart = new Chart(ctx, {
+                          type: 'bar',
+                          data: {
+                              labels: ['Support Workers', 'Healthcare Assistants', 'Mental Health Assistants', 'Midwives', 'RGNs'],
+                              datasets: [{
+                                  data: [supportWorkers, healthCareAssistants, mentalHealthCareAssistants, midwives, rgns],
+                                  backgroundColor: [
+                                      'rgba(255, 99, 132, 0.5)',
+                                      'rgba(54, 162, 235, 0.5)',
+                                      'rgba(255, 206, 86, 0.5)',
+                                      'rgba(75, 192, 192, 0.5)',
+                                      'rgba(153, 102, 255, 0.5)'
+                                  ],
+                                  borderColor: [
+                                      'rgba(255, 99, 132, 1)',
+                                      'rgba(54, 162, 235, 1)',
+                                      'rgba(255, 206, 86, 1)',
+                                      'rgba(75, 192, 192, 1)',
+                                      'rgba(153, 102, 255, 1)'
+                                  ],
+                                  borderWidth: 1
+                              }]
+                          }
+                      });
+                  </script>
+
+                <!--<div class="tab-pane fade show active profile-overview" id="profile-overview">
                   <h5 class="card-title">About</h5>
-                  <p class="small fst-italic animate__animated animate__slideInUp" data-wow-duration="2s">  
-                  WECHOOSETOCARE Ltd is a recruitment agency that offers highly personalised recruitment solutions to the healthcare industry. 
-                  Our recruitment solutions can either be on a permanent or temporary basis industry. Our recruitment solutions can either be on a permanent or temporary basis</p>
+                  <p class="small fst-italic animate__animated animate__slideInUp" data-wow-duration="2s">
+                  WECHOOSETOCARE Ltd is a recruitment agency that offers highly personalised recruitment solutions to the healthcare industry.
+                n  Our recruitment solutions can either be on a permanent or temporary basis industry. Our recruitment solutions can either be on a permanent or temporary basis</p>
 
                   <h5 class="card-title">Details</h5>
                   <div class="row">
@@ -203,8 +240,7 @@ $(document).ready(function(){
                     <div class="col-lg-9 col-md-8 animate__animated animate__slideInRight">info@wctc.care</div>
                   </div>
 
-                  
-
+                   !-->
                 </div>
 
                 <div class="tab-pane fade profile-edit pt-3" id="profile-edit">

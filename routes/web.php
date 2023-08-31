@@ -1,5 +1,10 @@
 <?php
 
+use App\Models\HealthCareAssistants;
+use App\Models\MentalHealthCareAssistants;
+use App\Models\MidWives;
+use App\Models\RGN;
+use App\Models\SupportWorkers;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\SupportWorkersController;
 use App\Http\Controllers\HealthCareAssistantsController;
@@ -10,9 +15,22 @@ use App\Http\Controllers\StatisticsController;
 use Carbon\Carbon;
 
 Route::get('/',function(){
+    $currentDate = now()->toDateString();
+    $supportWorkers = SupportWorkers::whereDate('date', $currentDate)->sum('num_people');
+    $healthCareAssistants= HealthCareAssistants::whereDate('date', $currentDate)->sum('num_people');
+    $mentalHealthCareAssistants = MentalHealthCareAssistants::whereDate('date', $currentDate)->sum('num_people');
+    $midwives = Midwives::whereDate('date', $currentDate)->sum('num_people');
+    $rgns = RGN::whereDate('date', $currentDate)->sum('num_people');
+    //get the authenticated user and the username
+    return view('welcome')->with("supportWorkers",$supportWorkers)
+        ->with("healthCareAssistants",$healthCareAssistants)
+        ->with("mentalHealthCareAssistants",$mentalHealthCareAssistants)->with("rgns",$rgns)->with("midwives",$midwives)->with("currentDate",$currentDate);
     $currentDate = Carbon::now('Europe/London')->format('d-m-Y H:i:s');
-    return view("welcome")->with('currentDate',$currentDate);
+    return view('welcome')->with("name",$name)->with("supportWorkers",$supportWorkers)
+        ->with("healthCareAssistants",$healthCareAssistants)
+        ->with("mentalHealthCareAssistants",$mentalHealthCareAssistants)->with("rgns",$rgns)->with("midwives",$midwives)->with("currentDate",$currentDate);
 });
+
 Route::get('/viewClientSupportWorkers', [SupportWorkersController::class, 'index'])->name("viewClientSupportWorkers");
 Route::get('/getStatistics', [StatisticsController::class, 'index'])->name("index")->middleware("auth");
 Route::get('/viewClientHealthCareWorkers', [HealthCareAssistantsController::class, 'index'])->name("viewClientHealthCareWorkers");
