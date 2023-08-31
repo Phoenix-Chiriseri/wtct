@@ -6,6 +6,7 @@ use App\Http\Controllers\HealthCareAssistantsController;
 use App\Http\Controllers\MentalHealthCareAssistantsController;
 use App\Http\Controllers\RGNController;
 use App\Http\Controllers\LoginController;
+use App\Http\Controllers\StatisticsController;
 use Carbon\Carbon;
 
 Route::get('/',function(){
@@ -13,6 +14,7 @@ Route::get('/',function(){
     return view("welcome")->with('currentDate',$currentDate);
 });
 Route::get('/viewClientSupportWorkers', [SupportWorkersController::class, 'index'])->name("viewClientSupportWorkers");
+Route::get('/getStatistics', [StatisticsController::class, 'index'])->name("index")->middleware("auth");
 Route::get('/viewClientHealthCareWorkers', [HealthCareAssistantsController::class, 'index'])->name("viewClientHealthCareWorkers");
 Route::get('/viewClientRegisteredNurses', [RGNController::class, 'index'])->name("viewClientRegisteredNurses");
 Route::get('/viewClientMentalHealthNurses', [MentalHealthCareAssistantsController::class, 'getWorkers'])->name("viewClientMentalHealthNurses");
