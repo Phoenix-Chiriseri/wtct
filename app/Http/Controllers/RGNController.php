@@ -35,7 +35,7 @@ class RGNController extends Controller
        ->whereDate('date', '>=', $startDate)
        ->whereDate('date', '<=', $endDate)
        ->groupBy('date')
-       ->get();  
+       ->get();
         return view('viewRegisteredNurses', ['shiftCounts' => $shiftCounts])->with("total",$totalPeopleWithinWeek)
         ->with("today",$totalPeopleForCurrentDay);
     }
@@ -87,22 +87,19 @@ class RGNController extends Controller
             'from_date' => 'required|date',
             'to_date' => 'required|date|after_or_equal:from_date',
         ]);
-    
+
         if ($validator->fails()) {
             return redirect()->back()->withErrors($validator)->withInput();
         }
-    
+
         $from_date = $request->input('from_date');
         $to_date = $request->input('to_date');
-    
+
         $results = DB::table('r_g_n_s')
             ->whereBetween('date', [$from_date, $to_date])
             ->delete();
-    
-        return redirect()->back()->with('success', 'Support Workers deleted successfully.');
-        
-    }
 
-   
-   
+        return redirect()->back()->with('success', 'Support Workers deleted successfully.');
+
+    }
 }

@@ -36,8 +36,10 @@ class MentalHealthCareAssistantsController extends Controller
        ->whereDate('date', '>=', $startDate)
        ->whereDate('date', '<=', $endDate)
        ->groupBy('date')
-       ->get();  
-        return view('viewMentalHealthWorkers', ['shiftCounts' => $shiftCounts])->with("total",$totalPeopleWithinWeek)->with("today",$totalPeopleForCurrentDay);
+       ->get();
+        return view('viewMentalHealthWorkers', ['shiftCounts' => $shiftCounts])
+            ->with("total",$totalPeopleWithinWeek)
+            ->with("today",$totalPeopleForCurrentDay);
     }
 
     /**
@@ -45,7 +47,7 @@ class MentalHealthCareAssistantsController extends Controller
      */
     public function create()
     {
-        
+
     }
 
     public function deleteRecords(){
@@ -62,7 +64,7 @@ class MentalHealthCareAssistantsController extends Controller
             'long' => 'Long Day',
         ];
         return view('mentalHealthCare')->with("shiftOptions",$shiftOptions)->with("supportWorkers");
-    } 
+    }
     /**
      * Store a newly created resource in storage.
      */
@@ -84,21 +86,16 @@ class MentalHealthCareAssistantsController extends Controller
             'from_date' => 'required|date',
             'to_date' => 'required|date|after_or_equal:from_date',
         ]);
-    
+
         if ($validator->fails()) {
             return redirect()->back()->withErrors($validator)->withInput();
         }
-    
+
         $from_date = $request->input('from_date');
         $to_date = $request->input('to_date');
         $results = DB::table('mental_health_care_assistants')
             ->whereBetween('date', [$from_date, $to_date])
             ->delete();
-    
         return redirect()->back()->with('success', 'Mental Health care workers deleted successfully.');
     }
-
-  
-  
-   
 }

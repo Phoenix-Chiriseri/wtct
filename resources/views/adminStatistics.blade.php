@@ -121,9 +121,7 @@
     </ul>
 </aside>
 <main id="main" class="main">
-
     <div class="pagetitle">
-        <h1>Chart.js</h1>
         <nav>
             <ol class="breadcrumb">
                 <li class="breadcrumb-item"><a href="/home">Home</a></l>
@@ -146,7 +144,7 @@
                             var midwives = <?php echo $midwives; ?>;
                             var rgns = <?php echo $rgns; ?>;
 
-                            // Chart.js code for a pie chart
+                            // Chart.js code focr a pie chart
                             var ctx = document.getElementById('healthcareChart').getContext('2d');
                             var healthcareChart = new Chart(ctx, {
                                 type: 'bar',
