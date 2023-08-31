@@ -85,7 +85,7 @@
       <li class="nav-item">
         <a class="nav-link " href="/home">
           <i class="bi bi-grid"></i>
-          <span>Choose Option</span>
+          <span>Dashboard</span>
         </a>
       </li><!-- End Dashboard Nav -->
       <li class="nav-item">

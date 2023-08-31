@@ -85,7 +85,7 @@
         <li class="nav-item">
             <a class="nav-link " href="/home">
                 <i class="bi bi-grid"></i>
-                <span>Choose Option</span>
+                <span>Dashboard</span>
             </a>
         </li><!-- End Dashboard Nav -->
         <li class="nav-item">
@@ -126,20 +126,16 @@
         <h1>Chart.js</h1>
         <nav>
             <ol class="breadcrumb">
-                <li class="breadcrumb-item"><a href="index.html">Home</a></li>
-                <li class="breadcrumb-item">Charts</li>
-                <li class="breadcrumb-item active">Chart.js</li>
+                <li class="breadcrumb-item"><a href="/home">Home</a></l>
             </ol>
         </nav>
     </div><!-- End Page Title -->
     <section class="section">
         <div class="row">
-
             <div class="col-lg-12">
                 <div class="card">
                     <div class="card-body">
-                        <h5 class="card-tcitle">Line Chart</h5>
-
+                        <h5 class="card-tcitle">Available Entries Today</h5>
                         <!-- Line Chart -->
                         <canvas id="healthcareChart"></canvas>
                         <script>
