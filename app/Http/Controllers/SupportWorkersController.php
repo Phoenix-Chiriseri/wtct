@@ -3,9 +3,6 @@
 namespace App\Http\Controllers;
 
 use App\Models\SupportWorkers;
-use App\Models\HealthCareAssistants;
-use App\Models\MentalHealthAssistants;
-use App\Models\RGN;
 use Illuminate\Http\Request;
 use Carbon\Carbon;
 use Charts;
@@ -20,7 +17,7 @@ class SupportWorkersController extends Controller
      */
 
     public function index()
-    {  
+    {
         $startDate = Carbon::now()->toDateString();
         $endDate = Carbon::now()->addDays(6)->toDateString();
         $totalPeopleForCurrentDay = SupportWorkers::whereDate('date', '=', now()->toDateString())
@@ -40,7 +37,7 @@ class SupportWorkersController extends Controller
        ->whereDate('date', '>=', $startDate)
        ->whereDate('date', '<=', $endDate)
        ->groupBy('date')
-       ->get();  
+       ->get();
         return view('viewResults', [
             'shiftCounts' => $shiftCounts,
             'total' => $totalPeopleWithinWeek,
@@ -58,25 +55,25 @@ class SupportWorkersController extends Controller
             'from_date' => 'required|date',
             'to_date' => 'required|date|after_or_equal:from_date',
         ]);
-    
+
         if ($validator->fails()) {
             return redirect()->back()->withErrors($validator)->withInput();
         }
-    
+
         $from_date = $request->input('from_date');
         $to_date = $request->input('to_date');
-    
+
         $results = DB::table('support_workers')
             ->whereBetween('date', [$from_date, $to_date])
             ->delete();
-    
+
         return redirect()->back()->with('success', 'Support Workers deleted successfully.');
-        
+
     }
 
     public function getWorkers(){
 
-    
+
         $shiftOptions = [
             'morning' => 'Morning Shift',
             'late' => 'Late Shift',
@@ -111,7 +108,8 @@ class SupportWorkersController extends Controller
      */
     public function store(Request $request)
     {
-        
+
+        //var dump the results
         $validatedData = $request->validate([
             'date' => 'required|date',
             'num_people' => 'required|integer',
@@ -125,12 +123,11 @@ class SupportWorkersController extends Controller
 
     public function actionRemoveEntry(Request $request)
     {
-    
         $numOfPeople = -$request->input('num_people');
         $date = $request->input('date');
         $shift = $request->input('shift');
         $totalPeopleForCurrentDay = SupportWorkers::whereDate('date', $date)->sum('num_people');
-        
+
           //Recalculate the shift counts for the selected shift type
            $shiftCounts = DB::table('support_workers')
             ->select(
@@ -142,7 +139,7 @@ class SupportWorkersController extends Controller
             ->groupBy('date')
             ->setBindings([$shift, $numOfPeople], 'select')
             ->get();
-            return view('viewUpdatedResults', ['shiftCounts' => $shiftCounts])->with("totalJobs",$totalPeopleForCurrentDay)->with("total",$totalPeopleForCurrentDay); 
+            return view('viewUpdatedResults', ['shiftCounts' => $shiftCounts])->with("totalJobs",$totalPeopleForCurrentDay)->with("total",$totalPeopleForCurrentDay);
     }
     /**
      * Display the specified resource.
@@ -152,5 +149,5 @@ class SupportWorkersController extends Controller
         //
     }
 
-  
+
 }

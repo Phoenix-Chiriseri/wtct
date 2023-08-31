@@ -6,8 +6,6 @@ use App\Http\Controllers\HealthCareAssistantsController;
 use App\Http\Controllers\MentalHealthCareAssistantsController;
 use App\Http\Controllers\RGNController;
 use App\Http\Controllers\LoginController;
-use App\Http\Controllers\PositionController;
-use App\Http\Controllers\MidwivesController;
 use Carbon\Carbon;
 
 Route::get('/',function(){
@@ -23,7 +21,7 @@ Route::get('/getSupportWorkers', [SupportWorkersController::class, 'getWorkers']
 Route::get('/getHealthCareWorkers', [HealthCareAssistantsController::class, 'getWorkers'])->middleware('auth');;
 Route::get('/getRGN', [RGNController::class, 'getWorkers'])->middleware('auth');
 Route::get('/getMentalHealthCareWorkers', [MentalHealthCareAssistantsController::class, 'getWorkers'])->middleware('auth');
-Route::post('/createSupportWorker', [SupportWorkersController::class, 'store'])->name("createSupportWorker")->middleware('admin');
+Route::post('/createSupportWorker', [SupportWorkersController::class, 'store'])->name("createSupportWorker")->middleware('auth');
 Route::post('/createHealthCareAssistant', [HealthCareAssistantsController::class, 'store'])->name("createHealthCareAssistant");
 Route::post('/createRGN', [RGNController::class, 'store'])->name("createRGN");
 Route::post('/createMentalHealthWorker', [MentalHealthCareAssistantsController::class, 'store'])->name("createMentalHealthWorker");
