@@ -115,7 +115,7 @@
         </li>
         <li class="nav-item">
             <a class="nav-link collapsed" data-bs-target="#components-nav" data-bs-toggle="collapse" href="/getStatistics">
-                <i class="bi bi-person-plus"></i><span>Get Statistics</span><i class="bi bi-chevron-down ms-auto"></i>
+                <i class="bi bi-person-plus"></i><span>Todays Statistics</span><i class="bi bi-chevron-down ms-auto"></i>
             </a>
         </li>
     </ul>
@@ -133,7 +133,7 @@
             <div class="col-lg-12">
                 <div class="card">
                     <div class="card-body">
-                        <h5 class="card-tcitle">Available Entries Today</h5>
+                        <h5 class="card-tcitle">Stats For Today</h5>
                         <!-- Line Chart -->
                         <canvas id="healthcareChart"></canvas>
                         <script>
