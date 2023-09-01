@@ -25,7 +25,6 @@
     
                   <form class="row g-3 needs-validation" novalidate method="POST" action="{{ route('login') }}">
                         @csrf
-
                     <div class="col-12">
                       <label for="yourUsername" class="form-label">Email</label>
                       <div class="input-group has-validation">
@@ -38,7 +37,6 @@
                         <div class="invalid-feedback">Please enter your username.</div>
                       </div>
                     </div>
-
                     <div class="col-12">
                       <label for="yourPassword" class="form-label">Password</label>
                       <input type="password"  class="form-control  @error('password') is-invalid @enderror" name="password" id="yourPassword" required>

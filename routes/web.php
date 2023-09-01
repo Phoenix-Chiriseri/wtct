@@ -12,9 +12,11 @@ use App\Http\Controllers\MentalHealthCareAssistantsController;
 use App\Http\Controllers\RGNController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\StatisticsController;
+use App\Http\Controllers\HomeController;
 use Carbon\Carbon;
 
-Route::get('/',function(){
+/*Route::get('/',function(){
+
     $currentDate = now()->toDateString();
     $supportWorkers = SupportWorkers::whereDate('date', $currentDate)->sum('num_people');
     $healthCareAssistants= HealthCareAssistants::whereDate('date', $currentDate)->sum('num_people');
@@ -29,7 +31,9 @@ Route::get('/',function(){
     return view('welcome')->with("name",$name)->with("supportWorkers",$supportWorkers)
         ->with("healthCareAssistants",$healthCareAssistants)
         ->with("mentalHealthCareAssistants",$mentalHealthCareAssistants)->with("rgns",$rgns)->with("midwives",$midwives)->with("currentDate",$currentDate);
-});
+});*/
+
+Route::get('/',[HomeController::class, 'welcomeScreen']);
 
 Route::get('/viewClientSupportWorkers', [SupportWorkersController::class, 'index'])->name("viewClientSupportWorkers");
 Route::get('/getStatistics', [StatisticsController::class, 'index'])->name("index")->middleware("auth");
