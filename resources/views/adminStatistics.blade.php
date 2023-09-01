@@ -137,39 +137,43 @@
                         <!-- Line Chart -->
                         <canvas id="healthcareChart"></canvas>
                         <script>
-                            // Processed data from your PHP code
                             var supportWorkers = <?php echo $supportWorkers; ?>;
-                            var healthCareAssistants = <?php echo $healthCareAssistants; ?>;
-                            var mentalHealthCareAssistants = <?php echo $mentalHealthCareAssistants; ?>;
-                            var midwives = <?php echo $midwives; ?>;
-                            var rgns = <?php echo $rgns; ?>;
+var healthCareAssistants = <?php echo $healthCareAssistants; ?>;
+var mentalHealthCareAssistants = <?php echo $mentalHealthCareAssistants; ?>;
+var midwives = <?php echo $midwives; ?>;
+var rgns = <?php echo $rgns; ?>;
 
-                            // Chart.js code focr a pie chart
-                            var ctx = document.getElementById('healthcareChart').getContext('2d');
-                            var healthcareChart = new Chart(ctx, {
-                                type: 'bar',
-                                data: {
-                                    labels: ['Support Workers', 'Healthcare Assistants', 'Mental Health Assistants', 'Midwives', 'RGNs'],
-                                    datasets: [{
-                                        data: [supportWorkers, healthCareAssistants, mentalHealthCareAssistants, midwives, rgns],
-                                        backgroundColor: [
-                                            'rgba(255, 99, 132, 0.5)',
-                                            'rgba(54, 162, 235, 0.5)',
-                                            'rgba(255, 206, 86, 0.5)',
-                                            'rgba(75, 192, 192, 0.5)',
-                                            'rgba(153, 102, 255, 0.5)'
-                                        ],
-                                        borderColor: [
-                                            'rgba(255, 99, 132, 1)',
-                                            'rgba(54, 162, 235, 1)',
-                                            'rgba(255, 206, 86, 1)',
-                                            'rgba(75, 192, 192, 1)',
-                                            'rgba(153, 102, 255, 1)'
-                                        ],
-                                        borderWidth: 1
-                                    }]
-                                }
-                            });
+// Filter out negative values
+supportWorkers = Math.max(supportWorkers, 0);
+healthCareAssistants = Math.max(healthCareAssistants, 0);
+mentalHealthCareAssistants = Math.max(mentalHealthCareAssistants, 0);
+midwives = Math.max(midwives, 0);
+rgns = Math.max(rgns, 0);
+
+// Blue color values
+var blueColors = [
+    'rgba(0, 0, 255, 0.5)',
+    'rgba(0, 0, 255, 0.5)',
+    'rgba(0, 0, 255, 0.5)',
+    'rgba(0, 0, 255, 0.5)',
+    'rgba(0, 0, 255, 0.5)'
+];
+
+// Chart.js code for a bar chart
+var ctx = document.getElementById('healthcareChart').getContext('2d');
+var healthcareChart = new Chart(ctx, {
+    type: 'bar',
+    data: {
+        labels: ['Support Workers', 'Healthcare Assistants', 'Mental Health Assistants', 'Midwives', 'RGNs'],
+        datasets: [{
+            data: [supportWorkers, healthCareAssistants, mentalHealthCareAssistants, midwives, rgns],
+            backgroundColor: blueColors, // Use blue color values
+            borderColor: blueColors, // Use the same blue color for the border
+            borderWidth: 1
+        }]
+    }
+});
+
                         </script>
                         <!-- End Line CHart -->
 
