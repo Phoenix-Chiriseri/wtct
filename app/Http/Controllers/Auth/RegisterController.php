@@ -38,7 +38,8 @@ class RegisterController extends Controller
      */
     public function __construct()
     {
-        $this->middleware('guest');
+        //registration page changed authentication, only using authenticated users
+        $this->middleware('auth'); 
     }
 
     /**

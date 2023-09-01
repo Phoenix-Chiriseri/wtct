@@ -29,7 +29,8 @@ class StatisticsController extends Controller
         $name = $user->name;
         return view('adminStatistics')->with("name",$name)->with("supportWorkers",$supportWorkers)
             ->with("healthCareAssistants",$healthCareAssistants)
-            ->with("mentalHealthCareAssistants",$mentalHealthCareAssistants)->with("rgns",$rgns)->with("midwives",$midwives)->with("currentDate",$currentDate);
+            ->with("mentalHealthCareAssistants",$mentalHealthCareAssistants)->with("rgns",$rgns)
+            ->with("midwives",$midwives)->with("currentDate",$currentDate);
     }
     /**
      * Show the form for creating a new resource.
