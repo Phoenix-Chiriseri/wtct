@@ -70,7 +70,7 @@ class RGNController extends Controller
             'shift' => 'required|in:morning,late,night,long',
         ]);
         RGN::create($validatedData);
-        return redirect('home');
+        return back()->with('success', 'Done');
     }
 
     public function deleteRecords(){

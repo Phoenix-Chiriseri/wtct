@@ -67,7 +67,7 @@ class MidWivesController extends Controller
             'shift' => 'required|in:morning,late,night,long',
         ]);
         Midwives::create($validatedData);
-        return redirect('home');
+        return back()->with('success', 'Done');
     
     }
 

@@ -72,7 +72,7 @@ class HealthCareAssistantsController extends Controller
         ]);
 
         HealthCareAssistants::create($validatedData);
-        return redirect('home');
+        return back()->with('success', 'Done');
     }
 
     public function deleteRecords(){
