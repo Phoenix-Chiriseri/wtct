@@ -20,11 +20,14 @@ class HomeController extends Controller
      *
      * @return void
      */
+    
     public function __construct()
     {
+        //changed the middleware on the home controller from authenticated users to guest
         $this->middleware('guest');
     }
 
+    //this is the function for the welcome screen that will return all the data to the welcome....
     public function welcomeScreen(){
 
         $currentDate = now()->toDateString();
@@ -35,10 +38,6 @@ class HomeController extends Controller
         $rgns = RGN::whereDate('date', $currentDate)->sum('num_people');
         //get the authenticated user and the username
         return view('welcome')->with("supportWorkers",$supportWorkers)
-            ->with("healthCareAssistants",$healthCareAssistants)
-            ->with("mentalHealthCareAssistants",$mentalHealthCareAssistants)->with("rgns",$rgns)->with("midwives",$midwives)->with("currentDate",$currentDate);
-        $currentDate = Carbon::now('Europe/London')->format('d-m-Y H:i:s');
-        return view('welcome')->with("name",$name)->with("supportWorkers",$supportWorkers)
             ->with("healthCareAssistants",$healthCareAssistants)
             ->with("mentalHealthCareAssistants",$mentalHealthCareAssistants)->with("rgns",$rgns)->with("midwives",$midwives)->with("currentDate",$currentDate);
     }
@@ -58,12 +57,4 @@ class HomeController extends Controller
         ->with("healthCareAssistants",$healthCareAssistants)
         ->with("mentalHealthCareAssistants",$mentalHealthCareAssistants)->with("rgns",$rgns)->with("midwives",$midwives)->with("currentDate",$currentDate);
     }
-
-
-    public function deleteRecords(){
-
-       return view('deleteRecords');
-
-    }
-
 }
