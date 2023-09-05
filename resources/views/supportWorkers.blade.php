@@ -6,11 +6,9 @@
 <section class="section">
       <div class="row">
         <div class="col-lg-12">
-
           <div class="card">
             <div class="card-body">
-              <h5 class="card-title">Support Workers</h5>
-              <!--<a href = "deleteFromSupportWorkers" class = "btn btn-danger">Delete Records</a>!-->
+              <h5 class="card-title">Support Workers</h5>    
             </div>
           </div>
         </div>
@@ -28,7 +26,7 @@
                 function massge() {
                 Swal.fire(
                 'Success',
-                'Support Worker Added Successfully'
+                'Done'
                     );
                     }
                     window.onload = massge;

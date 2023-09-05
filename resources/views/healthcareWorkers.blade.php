@@ -30,7 +30,7 @@
                 function massge() {
                 Swal.fire(
                 'Success',
-                'Support Worker Added Successfully'
+                'Done'
                     );
                     }
                     window.onload = massge;

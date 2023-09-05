@@ -77,7 +77,7 @@ class MentalHealthCareAssistantsController extends Controller
         ]);
 
         MentalHealthCareAssistants::create($validatedData);
-        return redirect('home');
+        return back()->with('success', 'Done');
     }
 
     public function deleteRecordsAction(Request $request){

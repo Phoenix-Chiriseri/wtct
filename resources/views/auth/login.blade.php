@@ -54,13 +54,53 @@
                   <p class="mb-0">Enter your email and password to sign in</p>
                 </div>
                 <div class="card-body">
+
+                  <div class="pt-4 pb-2">
+                    <h5 class="card-title text-center pb-0 fs-4">Login to Your Account</h5>
+                    <p class="text-center small">Enter your email & password to login</p>
+                  </div>
+    
+                  <form class="row g-3 needs-validation" novalidate method="POST" action="{{ route('login') }}">
+                        @csrf
+                    <div class="col-12">
+                      <label for="yourUsername" class="form-label">Email</label>
+                      <div class="input-group has-validation">
+                        <input type="text" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" id="yourUsername"  required>
+                        @error('email')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                @enderror
+                        <div class="invalid-feedback">Please enter your username.</div>
+                      </div>
                   <form role="form">
                     <div class="mb-3">
                       <input type="email" class="form-control form-control-lg" placeholder="Email" aria-label="Email">
                     </div>
+                    <div class="col-12">
+                      <label for="yourPassword" class="form-label">Password</label>
+                      <input type="password"  class="form-control  @error('password') is-invalid @enderror" name="password" id="yourPassword" required>
+                      @error('password')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                @enderror
+                      <div class="invalid-feedback">Please enter your password!</div>
                     <div class="mb-3">
                       <input type="email" class="form-control form-control-lg" placeholder="Password" aria-label="Password">
                     </div>
+
+                    <div class="col-12">
+                      <div class="form-check">
+                        <input class="form-check-input" type="checkbox" name="remember" value="true" id="rememberMe">
+                        <label class="form-check-label" for="rememberMe">Remember me</label>
+                      </div>
+                    </div>
+                    <div class="col-12">
+                      <button class="btn btn-primary w-100" type="submit">Login</button>
+                    </div>
+                    <div class="col-12">
+                     
                     <div class="form-check form-switch">
                       <input class="form-check-input" type="checkbox" id="rememberMe">
                       <label class="form-check-label" for="rememberMe">Remember me</label>

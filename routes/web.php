@@ -12,10 +12,15 @@ use App\Http\Controllers\MentalHealthCareAssistantsController;
 use App\Http\Controllers\RGNController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\StatisticsController;
+<<<<<<< HEAD
 use App\Http\Controllers\JobsController;
+=======
+use App\Http\Controllers\HomeController;
+>>>>>>> 93af52b1c8d5ba6bab5f8cb39933bc2cbc25c96c
 use Carbon\Carbon;
 
-Route::get('/',function(){
+/*Route::get('/',function(){
+
     $currentDate = now()->toDateString();
     $supportWorkers = SupportWorkers::whereDate('date', $currentDate)->sum('num_people');
     $healthCareAssistants= HealthCareAssistants::whereDate('date', $currentDate)->sum('num_people');
@@ -30,7 +35,9 @@ Route::get('/',function(){
     return view('welcome')->with("name",$name)->with("supportWorkers",$supportWorkers)
         ->with("healthCareAssistants",$healthCareAssistants)
         ->with("mentalHealthCareAssistants",$mentalHealthCareAssistants)->with("rgns",$rgns)->with("midwives",$midwives)->with("currentDate",$currentDate);
-});
+});*/
+
+Route::get('/',[HomeController::class, 'welcomeScreen']);
 
 Auth::routes();
 
@@ -54,12 +61,10 @@ Route::get('removeEntry', [SupportWorkersController::class, 'removeEntry'])->nam
 Route::post('removeEntry', [SupportWorkersController::class, 'actionRemoveEntry'])->name("removeEntry");
 Auth::routes();
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
-//Route::get('/getNewPosition', [App\Http\Controllers\PositionController::class, 'index'])->name('getNewPosition');
-//Route::post('/postNewPosition', [App\Http\Controllers\PositionController::class, 'store'])->name('postNewPosition');
 Route::get('/deleteFromSupportWorkers', [App\Http\Controllers\SupportWorkersController::class, 'deleteRecords'])->name('deleteRecords')->middleware('auth');;
 Route::get('/deleteFromHealthWorkers', [App\Http\Controllers\HealthCareAssistantsController::class, 'deleteRecords'])->name('deleteFromHealthWorkers')->middleware('auth');;
-Route::post('/deleteFromHealthWorkers', [App\Http\Controllers\HealthCareAssistantsController::class, 'deleteRecordsAction'])->name('deleteRecords')->middleware('auth');;
-Route::get('/deleteMentalHealthCare', [App\Http\Controllers\MentalHealthCareAssistantsController::class, 'deleteRecords'])->name('deleteRecords')->middleware('auth');;
+Route::post('/deleteFromHealthWorkers', [App\Http\Controllers\HealthCareAssistantsController::class, 'deleteRecordsAction'])->name('deleteRecords')->middleware('auth');
+Route::get('/deleteMentalHealthCare', [App\Http\Controllers\MentalHealthCareAssistantsController::class, 'deleteRecords'])->name('deleteRecords')->middleware('auth');
 Route::post('/deleteMentalHealthAction', [App\Http\Controllers\MentalHealthCareAssistantsController::class, 'deleteRecordsAction'])->name('deleteMentalHealthAction')->middleware('auth');
 Route::post('/deleteFromSupportWorkers', [App\Http\Controllers\SupportWorkersController::class, 'deleteRecordsAction'])->name('deleteRecords')->middleware('auth');
 Route::post('/deleteFromSupportWorkers', [App\Http\Controllers\SupportWorkersController::class, 'deleteRecordsAction'])->name('deleteRecords')->middleware('auth');

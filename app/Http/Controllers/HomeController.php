@@ -22,7 +22,25 @@ class HomeController extends Controller
      */
     public function __construct()
     {
-        $this->middleware('auth');
+        $this->middleware('guest');
+    }
+
+    public function welcomeScreen(){
+
+        $currentDate = now()->toDateString();
+        $supportWorkers = SupportWorkers::whereDate('date', $currentDate)->sum('num_people');
+        $healthCareAssistants= HealthCareAssistants::whereDate('date', $currentDate)->sum('num_people');
+        $mentalHealthCareAssistants = MentalHealthCareAssistants::whereDate('date', $currentDate)->sum('num_people');
+        $midwives = Midwives::whereDate('date', $currentDate)->sum('num_people');
+        $rgns = RGN::whereDate('date', $currentDate)->sum('num_people');
+        //get the authenticated user and the username
+        return view('welcome')->with("supportWorkers",$supportWorkers)
+            ->with("healthCareAssistants",$healthCareAssistants)
+            ->with("mentalHealthCareAssistants",$mentalHealthCareAssistants)->with("rgns",$rgns)->with("midwives",$midwives)->with("currentDate",$currentDate);
+        $currentDate = Carbon::now('Europe/London')->format('d-m-Y H:i:s');
+        return view('welcome')->with("name",$name)->with("supportWorkers",$supportWorkers)
+            ->with("healthCareAssistants",$healthCareAssistants)
+            ->with("mentalHealthCareAssistants",$mentalHealthCareAssistants)->with("rgns",$rgns)->with("midwives",$midwives)->with("currentDate",$currentDate);
     }
 
     public function index()
@@ -40,6 +58,7 @@ class HomeController extends Controller
         ->with("healthCareAssistants",$healthCareAssistants)
         ->with("mentalHealthCareAssistants",$mentalHealthCareAssistants)->with("rgns",$rgns)->with("midwives",$midwives)->with("currentDate",$currentDate);
     }
+
 
     public function deleteRecords(){
 

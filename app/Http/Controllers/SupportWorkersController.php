@@ -119,7 +119,8 @@ class SupportWorkersController extends Controller
         ]);
 
         SupportWorkers::create($validatedData);
-        return redirect('home');
+        return back()->with('success', 'Done');
+        
     }
 
 
