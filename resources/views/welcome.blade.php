@@ -1,158 +1,186 @@
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
-  <meta charset="utf-8">
-  <meta content="width=device-width, initial-scale=1.0" name="viewport">
-
-  <title>We Choose To Care</title>
-  <meta content="" name="description">
-  <meta content="" name="keywords">
-
-  <!-- Favicons -->
-  <link href="assets/img/favicon.png" rel="icon">
-  <link href="assets/img/apple-touch-icon.png" rel="apple-touch-icon">
-
-  <!-- Google Fonts -->
-  <link href="https://fonts.gstatic.com" rel="preconnect">
-  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Nunito:300,300i,400,400i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
-<!-- Fonts -->
-    <link rel="dns-prefetch" href="//fonts.bunny.net">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/material-icons@3.0.1/iconfont/material-icons.min.css">
-    <link href="{{ asset('/css/style.css') }}" rel="stylesheet">
-    <link href="{{ asset('/css/bootstrap.min.css') }}" rel="stylesheet">
-    <link href="{{ asset('/css/bootstrap-icons/bootstrap-icons.css') }}" rel="stylesheet">
-    <link href="{{ asset('/css/boxicons/boxicons.min.css') }}" rel="stylesheet">
-    <link href="{{ asset('/css/quill/quill.snow.css') }}" rel="stylesheet">
-    <link href="{{ asset('/css/quill/quill.bubble.css') }}" rel="stylesheet">
-    <link href="{{ asset('/css/remixicon/.css') }}" rel="stylesheet">
-    <link href="{{ asset('/css/style.css') }}" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/wow/1.1.2/wow.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-
-</head>
-<style>
-#temperature{
-
-  color:red;
-}
-.temperature{
-
-  color:navy;
-}
-#sunIcon{
-
- color:maroon;
-}
-</style>
-<body>
-<script>
-    new WOW().init();
-</script>
-<script>
-$(document).ready(function(){
-    const apiKey = "a2755480e2c07f45b35fe4669c73ec53";
-    const apiUrl = `http://api.openweathermap.org/data/2.5/weather?lat=51.5074&lon=-0.1278&units=metric&appid=${apiKey}`;
-    // Show the spinner while the data is being fetched
-    $(".spinner").show();
-    // Make an AJAX call to the server and get the weather from the OpenWeatherMap API for a UK location in metric units
-    $.ajax({
-        url: apiUrl,
-        type: "GET"
-    }).done(function(response){
-        const ukTemperature = response.main.temp;
-        // Hide the spinner after data is fetched
-        $(".spinner").hide();
-        //Display the data in the weather card using ES6 template literals
-        const weatherCard = `
-            <div class="weather-card">
-                <div class="temperature"><i class="bi bi-thermometer-sun" id = "sunIcon"></i></span> Temperature ${ukTemperature}°C</div>
+@extends('layouts.welcomelayout')
+@section('content')
+<div class="row mt-4">
+  <div class="col-lg-12 mb-lg-0 mb-4">
+    <div class="card">
+      <div class="card-body p-3">
+        <div class="row">
+          <div class="col-lg-6 mb-lg-0 mb-4">
+            <div class="d-flex flex-column h-100">
+              <p class="mb-1 pt-2 text-bold"></p>
+              <br><br>
+              <h1 class="font-weight-bolder" style="margin-left: 5%">We Chose To Care</h1>
+              <p class="mb-1 pt-2 text-bold" style="margin-left: 5%"> <strong>You are our priority - get the latest work updates from us.</strong> </p>
+              <a class="text-dark font-weight-bold ps-1 mb-0 icon-move-left mt-auto" href="javascript:;">
+                
+              </a>
             </div>
-        `;
-        // Append the card to the weather container in your HTML
-        $("#weatherContainer").append(weatherCard);
-    });
-});
- </script>
-  <!-- ======= Header ======= -->
-  <header id="header" class="header fixed-top d-flex align-items-center">
+          </div>
+          <div class="col-lg-4 me-auto ms-0 text-center">
+            <div class="bg-gradient-primary border-radius-lg min-height-200">
+              <img src="../../img/shapes/waves-white.svg" class="position-absolute h-100 top-0 d-md-block d-none" alt="waves">
+              <div class="position-relative pt-5 pb-4">
+                <img class="max-width-500 w-100 position-relative z-index-2" src="'../../img/logo.png" 
+                style="height: 20%;width:20%; margin-left: 45%">
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+ </div>
 
-    <div class="d-flex align-items-center justify-content-between">
-      <a href="index.html" class="logo d-flex align-items-center">
-        <img src="assets/img/logo.png" alt="">
-        <span class="d-none d-lg-block wow fadeIn">We Choose To Care</span>
-      </a>
-
-      <i class="bi bi-list toggle-sidebar-btn"></i>
-    </div><!-- End Logo -->
-    <nav class="header-nav ms-auto">
-      <ul class="d-flex align-items-center">
-        <li class="nav-item dropdown">
-        <li class="nav-item dropdown pe-3">
-
-          <a class="nav-link nav-profile d-flex align-items-center pe-0" href="#" data-bs-toggle="dropdown">
-            <img src="{{ asset('/img/logo.png') }}" alt="Profile" class="rounded-circle">
-          </a><!-- End Profile Iamge Icon -->
-        </li><!-- End Profile Nav -->
-
-      </ul>
-    </nav><!-- End Icons Navigation -->
-
-  </header><!-- End Header -->
-
-  <!-- ======= Sidebar ======= -->
-  <aside id="sidebar" class="sidebar">
-
-    <ul class="sidebar-nav" id="sidebar-nav">
-
-      <li class="nav-item">
-        <a class="nav-link " href="index.html">
-          <i class="bi bi-grid"></i>
-          <span>Navigate</span>
-        </a>
-      </li><!-- End Dashboard Nav -->
-      <li class="nav-item">
-        <a class="nav-link collapsed" data-bs-target="#components-nav" data-bs-toggle="collapse" href="/viewClientSupportWorkers">
-          <i class="bi bi-person-plus"></i><span>Support Workers</span><i class="bi bi-chevron-down ms-auto"></i>
-        </a>
-      </li><!-- End Components Nav -->
-      <li class="nav-item">
-        <a class="nav-link collapsed" data-bs-target="#components-nav" data-bs-toggle="collapse" href="/viewClientHealthCareWorkers">
-          <i class="bi bi-person-plus"></i><span>Health Care Workers</span><i class="bi bi-chevron-down ms-auto"></i>
-        </a>
-      </li><!-- End Components Nav -->
-      <li class="nav-item">
-        <a class="nav-link collapsed" data-bs-target="#components-nav" data-bs-toggle="collapse" href="/viewClientRegisteredNurses">
-          <i class="bi bi-person-plus"></i><span>Registered Nurses</span><i class="bi bi-chevron-down ms-auto"></i>
-        </a>
-      </li><!-- End Components Nav -->
-      <li class="nav-item">
-        <a class="nav-link collapsed" data-bs-target="#components-nav" data-bs-toggle="collapse" href="/showClientMentalHealthWorkers">
-          <i class="bi bi-person-plus"></i><span>Mental Health Care Workers</span><i class="bi bi-chevron-down ms-auto"></i>
-        </a>
-      </li><!-- End Components Nav -->
-      <li class="nav-item">
-        <a class="nav-link collapsed" data-bs-target="#components-nav" data-bs-toggle="collapse" href="/viewClientMidwives">
-          <i class="bi bi-person-plus"></i><span>Midwives</span><i class="bi bi-chevron-down ms-auto"></i>
-        </a>
-      </li><!-- End Components Nav -->
-    </ul>
-
-  </aside><!-- End Sidebar-->
-  <div class="pagetitle">
-    <nav>
-      <ol class="breadcrumb">
-        <li class="breadcrumb-item"><a href="/"></a></li>
-        <li class="breadcrumb-item active">Navigate</li>
-      </ol>
-    </nav>
-  </div><!-- End Page Title -->
-  <main id="main" class="main">
+ <br><br>
     <section class="section profile">
       <div class="row">
+        <div class="col-xl-3 col-sm-6 mb-xl-0 mb-4">
+          <div class="card">
+            <div class="card-body p-3">
+              <div class="row">
+                <div class="col-8">
+                  <div class="numbers">
+                    <p class="text-sm mb-0 text-uppercase font-weight-bold">CARE GIVERS</p>
+                    <h5 class="font-weight-bolder">
+                      10
+                    </h5>
+                    <p class="mb-0">
+                      <span class="text-warning text-sm font-weight-bolder"> Available <br> positions</span>
+                    </p>
+                  </div>
+                </div>
+                <div class="col-4 text-end">
+                  <div class="icon icon-shape bg-gradient-warning shadow-success text-center rounded-circle">
+                    <i class="ni ni-paper-diploma text-lg opacity-10" aria-hidden="true"></i>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-xl-3 col-sm-6 mb-xl-0 mb-4">
+          <div class="card">
+            <div class="card-body p-3">
+              <div class="row">
+                <div class="col-8">
+                  <div class="numbers">
+                    <p class="text-sm mb-0 text-uppercase font-weight-bold">DRIVERS</p>
+                    <h5 class="font-weight-bolder">
+                      25
+                    </h5>
+                    <p class="mb-0">
+                      <span class="text-warning text-sm font-weight-bolder"> Available <br> positions</span>
+                    </p>
+                  </div>
+                </div>
+                <div class="col-4 text-end">
+                  <div class="icon icon-shape bg-gradient-warning shadow-success text-center rounded-circle">
+                    <i class="ni ni-paper-diploma text-lg opacity-10" aria-hidden="true"></i>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-xl-3 col-sm-6 mb-xl-0 mb-4">
+          <div class="card">
+            <div class="card-body p-3">
+              <div class="row">
+                <div class="col-8">
+                  <div class="numbers">
+                    <p class="text-sm mb-0 text-uppercase font-weight-bold">Nurses</p>
+                    <h5 class="font-weight-bolder">
+                      8
+                    </h5>
+                    <p class="mb-0">
+                      <span class="text-warning text-sm font-weight-bolder"> Available <br> positions</span>
+                    </p>
+                  </div>
+                </div>
+                <div class="col-4 text-end">
+                  <div class="icon icon-shape bg-gradient-warning shadow-success text-center rounded-circle">
+                    <i class="ni ni-paper-diploma text-lg opacity-10" aria-hidden="true"></i>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-xl-3 col-sm-6 mb-xl-0 mb-4">
+          <div class="card">
+            <div class="card-body p-3">
+              <div class="row">
+                <div class="col-8">
+                  <div class="numbers">
+                    <p class="text-sm mb-0 text-uppercase font-weight-bold">Security Guards</p>
+                    <h5 class="font-weight-bolder">
+                      5 
+                    </h5>
+                    <p class="mb-0">
+                      <span class="text-warning text-sm font-weight-bolder"> Available <br> positions</span>
+                    </p>
+                  </div>
+                </div>
+                <div class="col-4 text-end">
+                  <div class="icon icon-shape bg-gradient-warning shadow-success text-center rounded-circle">
+                    <i class="ni ni-paper-diploma text-lg opacity-10" aria-hidden="true"></i>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-12 mt-4">
+          <div class="card">
+            <div class="card-header pb-0 px-3">
+              <h6 class="mb-0">Featured Jobs</h6>
+            </div>
+            <div class="card-body pt-4 p-3">
+              <ul class="list-group">
+                <li class="list-group-item border-0 d-flex p-4 mb-2 bg-gray-100 border-radius-lg">
+                  <div class="d-flex flex-column">
+                   
+                    <span class="mb-2 text-xs">Company Name: <span class="text-dark font-weight-bold ms-sm-2">BE - DIGITAL</span></span>
+                    <span class="mb-2 text-xs">Postion: <span class="text-dark ms-sm-2 font-weight-bold">GRAPHICS DESIGNER</span></span>
+                    <span class="text-xs">Shift: <span class="text-dark ms-sm-2 font-weight-bold">DAYTIME</span></span>
+                  </div>
+                  <div class="ms-auto text-end">
+                    <a class="btn btn-link text-warning text-gradient px-3 mb-0" href="{{route('job_summary')}}"><i class="far fa-trash-alt me-2"></i>VIEW DETAILS</a>
+                  
+                  </div>
+                </li>
+                <li class="list-group-item border-0 d-flex p-4 mb-2 mt-3 bg-gray-100 border-radius-lg">
+                  <div class="d-flex flex-column">
+                   
+                    <span class="mb-2 text-xs">Company Name: <span class="text-dark font-weight-bold ms-sm-2">Alpha Medical</span></span>
+                    <span class="mb-2 text-xs">Postion: <span class="text-dark ms-sm-2 font-weight-bold">Nurses</span></span>
+                    <span class="text-xs">Shift: <span class="text-dark ms-sm-2 font-weight-bold">DAYTIME</span></span>
+                  </div>
+                  <div class="ms-auto text-end">
+                    <a class="btn btn-link text-warning text-gradient px-3 mb-0" href="javascript:;"><i class="far fa-trash-alt me-2"></i>VIEW DETAILS</a>
+                  
+                  </div>
+                </li>
+                <li class="list-group-item border-0 d-flex p-4 mb-2 mt-3 bg-gray-100 border-radius-lg">
+                  <div class="d-flex flex-column">
+                    <span class="mb-2 text-xs">Company: <span class="text-dark ms-sm-2 font-weight-bold">PRIVATE</span></span>
+                    <span class="mb-2 text-xs">Postion: <span class="text-dark ms-sm-2 font-weight-bold">DRIVER</span></span>
+                    <span class="text-xs">Shift: <span class="text-dark ms-sm-2 font-weight-bold">NIGHT</span></span>
+                  </div>
+                  <div class="ms-auto text-end">
+                    <a class="btn btn-link text-warning text-gradient px-3 mb-0" href="javascript:;"><i class="far fa-trash-alt me-2"></i>VIEW DETAILS</a>
+                  
+                  </div>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      
+      </div>
+      {{-- <div class="row">
         <div class="col-xl-4">
           <div class="card">
             <div class="card-body profile-card pt-4 d-flex flex-column align-items-center">
@@ -221,7 +249,7 @@ var healthcareChart = new Chart(ctx, {
     }
 });
 
-                  </script>
+                  </script> --}}
                 </div>
                 </form>
                 </div>
@@ -233,28 +261,4 @@ var healthcareChart = new Chart(ctx, {
         </div>
       </div>
     </section>
-
-  </main><!-- End #main -->
-
-  <!-- ======= Footer ======= -->
-  <footer id="footer" class="footer" style="margin-top: 200px;">
-    <div class="credits">
-      <a href = "https://www.b-e.digital/" target="_blank">Powered by Brand Evangelicals</a>
-    </div>
-  </footer><!-- End Footer -->
-  <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
-  <!-- Vendor JS Files -->
-  <script src="{{ asset('/js/main.js') }}"></script>
-  <script src="{{ asset('/js/vendor/bootstrap/js/bootstrap.bundle.min.js')}}"></script>
-  <script src="{{ asset('/js/vendor/chart.js/chart.umd.js')}}"></script>
-  <script src="{{ asset('/js/vendor/echarts/chart.umd.js')}}"></script>
-  <script src="{{ asset('/js/vendor/quill/quill.min.js')}}"></script>
-  <script src="{{ asset('/js/vendor/simple-datatables/simple-datatables.js')}}"></script>
-  <script src="{{ asset('/js/vendor/tinymce/tinymce.min.js')}}"></script>
-  <script src="{{ asset('/js/vendor/php-email-form/validate.js')}}"></script>
-  <!-- Template Main JS File -->
-  <script src="assets/js/main.js"></script>
-
-</body>
-
-</html>
+@endsection

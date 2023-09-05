@@ -92,15 +92,17 @@ class SupportWorkersController extends Controller
             'long' => 'Long Day',
         ];
         return view('removeEntry')->with('shiftOptions',$shiftOptions);
-
-
     }
     /**
      * Show the form for creating a new resource.
      */
     public function create()
     {
-        //
+        return view('admin.create_jobs');
+    }
+
+    public function createJob(Request $request){
+
     }
 
     /**
@@ -149,5 +151,41 @@ class SupportWorkersController extends Controller
         //
     }
 
+    public function workersCreated(){
+        return view('clients.supportworkers');
+    }
 
+
+    public function mentalCare(){
+        return view('clients.mental_care_workers');
+    }
+
+
+    public function healthCare(){
+        return view('clients.healthcareworkers');
+    }
+
+    public function midwives(){
+        return view('clients.midwives');
+    }
+
+    public function drivers(){
+        return view('clients.drivers');
+    }
+
+    public function handymen(){
+        return view('clients.handymen');
+    }
+
+    public function login(){
+        return view('admin.login');
+    }
+    
+    public function jobSummary(){
+        return view ('clients.job_summary');
+    }
+
+
+    
+    
 }

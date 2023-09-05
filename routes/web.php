@@ -12,6 +12,7 @@ use App\Http\Controllers\MentalHealthCareAssistantsController;
 use App\Http\Controllers\RGNController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\StatisticsController;
+use App\Http\Controllers\JobsController;
 use Carbon\Carbon;
 
 Route::get('/',function(){
@@ -30,6 +31,8 @@ Route::get('/',function(){
         ->with("healthCareAssistants",$healthCareAssistants)
         ->with("mentalHealthCareAssistants",$mentalHealthCareAssistants)->with("rgns",$rgns)->with("midwives",$midwives)->with("currentDate",$currentDate);
 });
+
+Auth::routes();
 
 Route::get('/viewClientSupportWorkers', [SupportWorkersController::class, 'index'])->name("viewClientSupportWorkers");
 Route::get('/getStatistics', [StatisticsController::class, 'index'])->name("index")->middleware("auth");
@@ -67,3 +70,16 @@ Route::post('/createMidwives', [App\Http\Controllers\MidwivesController::class, 
 Route::get('viewClientMidwives',[App\Http\Controllers\MidwivesController::class,'create'])->name('viewClientMidwives');
 Route::get('/deleteMidwives',[App\Http\Controllers\MidwivesController::class,'deleteRecords'])->name('deleteMidwives');
 Route::post('/deleteMidwives',[App\Http\Controllers\MidwivesController::class,'deleteRecordsAction'])->name('deleteMidwives');
+
+//Proposed routes for Support workers
+Route::get('supportworkers', [App\Http\Controllers\SupportWorkersController::class, 'workersCreated'])->name('supportworkers');
+Route::get('healthcareworkers', [App\Http\Controllers\SupportWorkersController::class, 'healthCare'])->name('healthcare');
+Route::get('mentalcareworkers', [App\Http\Controllers\SupportWorkersController::class, 'mentalCare'])->name('mentalcare');
+Route::get('midwives', [App\Http\Controllers\SupportWorkersController::class, 'midwives'])->name('midwives');
+Route::get('handymen', [App\Http\Controllers\SupportWorkersController::class, 'handymen'])->name('handymen');
+Route::get('drivers', [App\Http\Controllers\SupportWorkersController::class, 'drivers'])->name('drivers');
+Route::get('create_workers', [App\Http\Controllers\SupportWorkersController::class, 'createWorkers'])->name('create_workers');
+Route::get('job_summary', [App\Http\Controllers\SupportWorkersController::class, 'jobSummary'])->name('job_summary');
+Route::get('home',[App\Http\Controllers\JobsController::class, 'home'])->name('home');
+Route::get('create_jobs',[App\Http\Controllers\JobsController::class, 'createJobs'])->name('create_jobs');
+
