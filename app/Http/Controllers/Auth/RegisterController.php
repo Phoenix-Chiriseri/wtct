@@ -29,6 +29,8 @@ class RegisterController extends Controller
      *
      * @var string
      */
+
+     //redirect to the home route after thre registration..
     protected $redirectTo = RouteServiceProvider::HOME;
 
     /**
@@ -63,6 +65,8 @@ class RegisterController extends Controller
      * @param  array  $data
      * @return \App\Models\User
      */
+
+     //register the user into the application and then return redirect to the home route
     protected function create(array $data)
     {
         return User::create([

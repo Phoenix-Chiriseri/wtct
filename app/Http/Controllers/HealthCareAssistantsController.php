@@ -63,6 +63,8 @@ class HealthCareAssistantsController extends Controller
     /**
      * Store a newly created resource in storage.
      */
+
+     //store a new health care assistant worker
     public function store(Request $request)
     {
         $validatedData = $request->validate([
@@ -97,6 +99,8 @@ class HealthCareAssistantsController extends Controller
         //
     }
 
+
+    //this is the function that will delete all the records from the database
     public function deleteRecordsAction(Request $request){
 
         $validator = Validator::make($request->all(), [

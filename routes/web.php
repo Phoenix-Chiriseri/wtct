@@ -15,7 +15,7 @@ use App\Http\Controllers\StatisticsController;
 use App\Http\Controllers\HomeController;
 use Carbon\Carbon;
 
-
+//routes for the application are located in this file 
 Route::post('/logout', [LoginController::class, 'logout']);
 Route::get('/',[HomeController::class, 'welcomeScreen']);
 Route::get('/viewClientSupportWorkers', [SupportWorkersController::class, 'index'])->name("viewClientSupportWorkers");

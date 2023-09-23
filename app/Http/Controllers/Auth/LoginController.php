@@ -37,11 +37,15 @@ class LoginController extends Controller
      *
      * @return void
      */
+
+     //middleware for the applicatio set to guest 
     public function __construct()
     {
         $this->middleware('guest');
     }
 
+
+    //this is the code for the logout function release the session and redirect to the home screen
     public function logout(Request $request){
 
 
