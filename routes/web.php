@@ -16,6 +16,7 @@ use App\Http\Controllers\HomeController;
 use Carbon\Carbon;
 
 
+Route::post('/logout', [LoginController::class, 'logout']);
 Route::get('/',[HomeController::class, 'welcomeScreen']);
 Route::get('/viewClientSupportWorkers', [SupportWorkersController::class, 'index'])->name("viewClientSupportWorkers");
 Route::get('/getStatistics', [StatisticsController::class, 'index'])->name("index")->middleware("auth");
@@ -24,19 +25,18 @@ Route::get('/viewClientRegisteredNurses', [RGNController::class, 'index'])->name
 Route::get('/viewClientMentalHealthNurses', [MentalHealthCareAssistantsController::class, 'getWorkers'])->name("viewClientMentalHealthNurses");
 Route::get('/showClientMentalHealthWorkers', [MentalHealthCareAssistantsController::class, 'index'])->name("showClientMentalHealthWorkers");
 Route::get('/getSupportWorkers', [SupportWorkersController::class, 'getWorkers'])->middleware('auth');
-Route::get('/getHealthCareWorkers', [HealthCareAssistantsController::class, 'getWorkers'])->middleware('auth');;
+Route::get('/getHealthCareWorkers', [HealthCareAssistantsController::class, 'getWorkers'])->middleware('auth');
+Auth::routes();
 Route::get('/getRGN', [RGNController::class, 'getWorkers'])->middleware('auth');
 Route::get('/getMentalHealthCareWorkers', [MentalHealthCareAssistantsController::class, 'getWorkers'])->middleware('auth');
 Route::post('/createSupportWorker', [SupportWorkersController::class, 'store'])->name("createSupportWorker")->middleware('auth');
 Route::post('/createHealthCareAssistant', [HealthCareAssistantsController::class, 'store'])->name("createHealthCareAssistant");
 Route::post('/createRGN', [RGNController::class, 'store'])->name("createRGN");
 Route::post('/createMentalHealthWorker', [MentalHealthCareAssistantsController::class, 'store'])->name("createMentalHealthWorker");
-Route::post('/logout', [LoginController::class, 'logout']);
 Route::get('viewResults', [SupportWorkersController::class, 'index'])->name("viewResults");
 Route::get('removeEntry', [SupportWorkersController::class, 'removeEntry'])->name("removeEntry");
 Route::post('removeEntry', [SupportWorkersController::class, 'actionRemoveEntry'])->name("removeEntry");
-Auth::routes();
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+Route::get('/home', [HomeController::class, 'index'])->name('home');
 Route::get('/deleteFromSupportWorkers', [App\Http\Controllers\SupportWorkersController::class, 'deleteRecords'])->name('deleteRecords')->middleware('auth');;
 Route::get('/deleteFromHealthWorkers', [App\Http\Controllers\HealthCareAssistantsController::class, 'deleteRecords'])->name('deleteFromHealthWorkers')->middleware('auth');;
 Route::post('/deleteFromHealthWorkers', [App\Http\Controllers\HealthCareAssistantsController::class, 'deleteRecordsAction'])->name('deleteRecords')->middleware('auth');
@@ -47,7 +47,7 @@ Route::post('/deleteFromSupportWorkers', [App\Http\Controllers\SupportWorkersCon
 Route::get('/deleteRegisteredNurses', [App\Http\Controllers\RGNController::class, 'deleteRecords'])->name('deleteRegisteredNurses')->middleware('auth');
 Route::post('/deleteRegisteredNurses', [App\Http\Controllers\RGNController::class, 'deleteRecordsAction'])->name('deleteRegisteredNurses')->middleware('auth');
 Route::get('/getMidwives', [App\Http\Controllers\MidwivesController::class, 'index'])->name('getMidwives')->middleware('auth');
-Route::post('/createMidwives', [App\Http\Controllers\MidwivesController::class, 'store'])->name('createMidwives');
+Route::post('/createMidwives', [App\Http\Controllers\MidwivesController::class, 'store'])->name('createMidwives')->middleware('auth');
 Route::get('viewClientMidwives',[App\Http\Controllers\MidwivesController::class,'create'])->name('viewClientMidwives');
-Route::get('/deleteMidwives',[App\Http\Controllers\MidwivesController::class,'deleteRecords'])->name('deleteMidwives');
-Route::post('/deleteMidwives',[App\Http\Controllers\MidwivesController::class,'deleteRecordsAction'])->name('deleteMidwives');
+Route::get('/deleteMidwives',[App\Http\Controllers\MidwivesController::class,'deleteRecords'])->name('deleteMidwives')->middleware('auth');;
+Route::post('/deleteMidwives',[App\Http\Controllers\MidwivesController::class,'deleteRecordsAction'])->name('deleteMidwives')->middleware('auth');;

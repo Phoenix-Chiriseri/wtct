@@ -15,6 +15,8 @@ class MidWivesController extends Controller
      * Display a listing of the resource.
      */
 
+
+     //get the midwives and parse it into the views
     public function index()
     {
         //
@@ -27,9 +29,7 @@ class MidWivesController extends Controller
         return view('getMidwives')->with("shiftOptions",$shiftOptions);
     }
 
-    /**
-     * Show the form for creating a new resource.
-     */
+    //select the shifts from the database for all the records
     public function create()
     {
         $startDate = Carbon::now()->toDateString();
@@ -67,6 +67,7 @@ class MidWivesController extends Controller
             'num_people' => 'required|integer',
             'shift' => 'required|in:morning,late,night,long',
         ]);
+        
         Midwives::create($validatedData);
         return back()->with('success', 'Done');
     
@@ -80,8 +81,7 @@ class MidWivesController extends Controller
     /**
      * Display the specified resource.
      */
-  
-
+    //function that will delete all the records from the database
     public function deleteRecordsAction(Request $request){
 
         $validator = Validator::make($request->all(), [
@@ -103,9 +103,5 @@ class MidWivesController extends Controller
         return redirect()->back()->with('success', 'Midwives Saved');
         
     }
-
-    /**
-     * Show the form for editing the specified resource.
-     */
 
 }

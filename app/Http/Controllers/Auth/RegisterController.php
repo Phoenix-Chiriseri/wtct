@@ -39,7 +39,7 @@ class RegisterController extends Controller
     public function __construct()
     {
         //registration page changed authentication, only using authenticated users
-        $this->middleware('auth'); 
+        //$this->middleware('guest'); 
     }
 
     /**
@@ -70,5 +70,11 @@ class RegisterController extends Controller
             'email' => $data['email'],
             'password' => Hash::make($data['password']),
         ]);
+
+        //redirect to the home route
+        //return view("home");
+
+        return redirect()->route('/home');
+
     }
 }
