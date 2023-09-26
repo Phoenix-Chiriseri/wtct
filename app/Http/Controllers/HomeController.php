@@ -24,7 +24,7 @@ class HomeController extends Controller
     public function __construct()
     {
         //changed the middleware on the home controller from authenticated users to guest
-        $this->middleware('guest');
+        
     }
 
     //this is the function for the welcome screen that will return all the data to the welcome....

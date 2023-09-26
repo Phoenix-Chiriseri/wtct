@@ -31,7 +31,7 @@ class RegisterController extends Controller
      */
 
      //redirect to the home route after thre registration..
-    protected $redirectTo = RouteServiceProvider::HOME;
+     protected $redirectTo = RouteServiceProvider::HOME;
 
     /**
      * Create a new controller instance.
@@ -41,7 +41,6 @@ class RegisterController extends Controller
     public function __construct()
     {
         //registration page changed authentication, only using authenticated users
-        //$this->middleware('guest'); 
     }
 
     /**
@@ -75,10 +74,9 @@ class RegisterController extends Controller
             'password' => Hash::make($data['password']),
         ]);
 
-        //redirect to the home route
-        //return view("home");
-
-        return redirect()->route('/home');
+        //return $user;
+        //redirect user to the home route
+        return redirect('/home');
 
     }
 }
